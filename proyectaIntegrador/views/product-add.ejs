@@ -28,7 +28,7 @@
 				</div>
 	
 				<div class="col-7 col-md-6">
-					<form action="search-results.html" method="GET" class="search-form">
+					<form action="" method="GET" class="search-form">
 						<input type="text" name="search" placeholder="Buscar productos, marcas y más"
 							class="search-form_input">
 						<button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
@@ -50,28 +50,28 @@
 			<nav class="main-navbar">
 				<ul class="left-navbar">
 					<li><a href="index.html">Todos los productos</a></li>
-					<!-- solo logueado <li><a href="">Cargar productos</a></li> -->
+					<li><a href="">Cargar productos</a></li>
 				</ul>
 	
 				<ul class="right-navbar">
-					<!-- Solo logueado <li><a href="profile.html">
-								Nombre del usuario <i class="fas fa-user"></i>
-							</a>
-						</li>
-						<li>
-							<form action="" method="post">
-								<button class="logout" type="submit">
-									Cerrar sesión <i class="fas fa-sign-in-alt"></i>
-								</button>
-							</form>
-						</li> -->
-					<li>
-						<a href="register.html">Creá tu cuenta <i class="far fa-address-card"></i>
+					<li><a href="profile.html">
+							Nombre del usuario <i class="fas fa-user"></i>
 						</a>
 					</li>
 					<li>
-						<a href="login.html">Ingresá <i class="fas fa-sign-in-alt"></i></a>
+						<form action="" method="post">
+							<button class="logout" type="submit">
+								Cerrar sesión <i class="fas fa-sign-in-alt"></i>
+							</button>
+						</form>
 					</li>
+					<!-- Solo deslogueados <li>
+							<a href="register.html">Creá tu cuenta <i class="far fa-address-card"></i>
+							</a>
+						</li>
+						<li>
+							<a href="login.html">Ingresá <i class="fas fa-sign-in-alt"></i></a>
+						</li> -->
 				</ul>
 			</nav>
 		</div>
@@ -82,21 +82,25 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Ingresar</h2>
+				<h2 class="products-title">Agregar productos</h2>
 			</div>
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> 
-                <i>
-                    <form action="login.ejs" method="GET" >
+                <i> 
+                    <form action="product-add.ejs" method="GET">
 
-                        <div> <input type="email" name="email" placeholder="Escriba su usuario"></div>
+                        <div> <input type="file" name="image" placeholder="Imagen del producto" value=""></div>
 
-                        <div> <input type="password" name="password" placeholder="Escriba su contraseña"></div>
+                        <div> <input type="text" name="name" placeholder="Nombre del producto" value=""></div>
 
-                        <div> <input type="checkbox" name="recordar" placeholder="Recordarme en esta página"></div>
+                        <div> <input type="text" name="Description" placeholder="Descripción del producto" value=""></div>
 
+                        <div> <input type="date" name="fecha" placeholder="Fecha de carga del producto" value=""></div>
 
                     </form>
+
+
+
                 </i>
 
 			</h2>

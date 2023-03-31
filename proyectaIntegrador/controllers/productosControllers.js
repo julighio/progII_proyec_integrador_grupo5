@@ -1,7 +1,7 @@
-const controlador = {
+const controladorProductos = {
     estamos: function (req,res) {
         res.send("Estamos linkeados? Gracias")
     },
 }
 
-module.exports = controlador
+module.exports = controladorProductos
