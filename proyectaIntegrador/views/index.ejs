@@ -17,11 +17,11 @@
 <body>
 
   <header class="main-header">
-    <% if (userLogueado){%>
-      <%- include('./partials/headerlogueado') %>
+	 <% if (userLogueado == "si" ){%>
+      <%- include('./partials/headerlogueado')%>
     <% } else { %>
-      <%- include('./partials/header') 
-    <%}%>
+      <% -include('./partials/header') %>
+    <%}-%>
   </header>
 	
 	<!-- Banner -->
