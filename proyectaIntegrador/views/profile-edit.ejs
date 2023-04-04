@@ -1,3 +1,32 @@
+<<<<<<< HEAD
 <form>
     <input name="username" placeholder="<%= infoUsuario.username %>">
 </form>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header class="main-header">
+        <% if (userLogueado){%>
+          <%- include('./partials/headerlogueado') %>
+        <% } else { %>
+          <%- include('./partials/header')
+        <%}%>
+    </header>
+
+    <form>
+        <input name="username" placeholder="<%= infoUsuario.username %>">
+    </form> 
+    
+    <footer class="main-footer">
+		<%- includes('./partials/footer')%>
+	</footer>
+</body>
+</html>
+>>>>>>> 444f99ee33607f3c1db62aed89145d4c362719a7
