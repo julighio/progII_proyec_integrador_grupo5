@@ -1,7 +1,19 @@
+const data = requiere ('../db/data')
+
 const indexController = {
-    estamos: function (req,res) {
-        res.send("Estamos linkeados? Gracias")
+
+    index: function(req,res){
+        return res.render('index')
+
     },
+
+    login: function(req,res) {
+        return res.render('login')
+        
+    },
+    
+    
+    
 }
 
 module.exports = indexController
