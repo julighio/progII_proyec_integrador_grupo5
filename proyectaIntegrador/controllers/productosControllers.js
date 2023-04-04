@@ -1,6 +1,11 @@
+let data = require ('../db/data')
 const controladorProductos = {
-    estamos: function (req,res) {
-        res.send("Estamos linkeados? Gracias")
+    product: function(req,res){
+        return res.render ('product')
+    },
+
+    productAdd: function(req,res){
+        return res.render ('product-add')
     },
 }
 

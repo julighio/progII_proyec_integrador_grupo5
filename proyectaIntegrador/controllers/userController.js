@@ -1,11 +1,11 @@
 let data = require('../db/data')
 
 const usercontroller = {
-    estamos: function (req,res) {
-        res.send("Estamos linkeados? Gracias")
+    profile: function (req,res) {
+        return res.render ('profile')
     },
     edit: function(req, res){
-        res.render('error', {
+        res.render('profile-edit', {
             infoUsuario: data.users[0]
         })
 
