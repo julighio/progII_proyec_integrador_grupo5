@@ -16,12 +16,11 @@
 </head>
 <body>
 
+   
+
   <header class="main-header">
-	 <% if (userLogueado == "si" ){%>
-      <%- include('./partials/headerlogueado')%>
-    <% } else { %>
-      <% -include('./partials/header') %>
-    <%}-%>
+	<%- include('./partials/header.ejs')%>
+
   </header>
 	
 	<!-- Banner -->
@@ -166,7 +165,7 @@
 
 	
   <footer class="main-footer">
-		<%- include('./partials/footer')%>
+		<%- include('./partials/footer.ejs')%>
 	</footer>
   
 	

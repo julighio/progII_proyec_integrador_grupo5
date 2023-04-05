@@ -18,13 +18,11 @@
 
 <body>
 	<!-- Header -->
+	
 	<header class="main-header">
-            <% if (userLogueado){%>
-              <%- include('./partials/headerlogueado') %>
-            <% } else { %>
-              <%- include('./partials/header')
-            <%}%>
-	</header>
+	<%- include('./partials/header.ejs')%>
+
+  </header>
 	<!-- /Header -->
 
 	<!-- Novedades -->
@@ -53,7 +51,7 @@
 
 	<!-- footer -->
 	<footer class="main-footer">
-        <%- includes('./partials/footer')%>
+        <%- includes('./partials/footer.ejs')%>
 	</footer>
 	<!-- /footer -->
 	<script src="../css/app.css"></script>
