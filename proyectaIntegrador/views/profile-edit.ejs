@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+ 
 <form>
     <input name="username" placeholder="<%= infoUsuario.username %>">
 </form>
@@ -12,13 +12,11 @@
     <title>Document</title>
 </head>
 <body>
+   
     <header class="main-header">
-        <% if (userLogueado){%>
-          <%- include('./partials/headerlogueado') %>
-        <% } else { %>
-          <%- include('./partials/header')
-        <%}%>
-    </header>
+	<%- include('./partials/headerlogueado.ejs')%>
+
+  </header>
 
     <form>
         <input name="username" placeholder="<%= infoUsuario.username %>">

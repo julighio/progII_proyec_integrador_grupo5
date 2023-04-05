@@ -17,13 +17,11 @@
 </head>
 
 <body>
+	
 	<header class="main-header">
-		<% if (userLogueado){%>
-		  <%- include('./partials/headerlogueado') %>
-		<% } else { %>
-		  <%- include('./partials/header')
-		<%}%>
-	</header>
+	<%- include('./partials/headerlogueado.ejs')%>
+
+  </header>
 
 	<!-- Novedades -->
 	<div class="container products-wrapper">
