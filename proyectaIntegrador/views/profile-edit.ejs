@@ -1,30 +1,14 @@
  
-<form>
-    <input name="username" placeholder="<%= infoUsuario.username %>">
-</form>
-=======
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+<%- include('./partials/head.ejs')%> <!--Head-->
 <body>
    
-    <header class="main-header">
-	<%- include('./partials/headerlogueado.ejs')%>
-
-  </header>
+	<%- include('./partials/headerlogueado.ejs')%> <!--Header-->
 
     <form>
         <input name="username" placeholder="<%= infoUsuario.username %>">
     </form> 
     
-    <footer class="main-footer">
-		<%- includes('./partials/footer.ejs')%>
-	</footer>
+	<%- includes('./partials/footer.ejs')%> <!--Footer-->
 </body>
 </html>
->>>>>>> 444f99ee33607f3c1db62aed89145d4c362719a7
+
