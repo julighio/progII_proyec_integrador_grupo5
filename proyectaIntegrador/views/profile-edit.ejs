@@ -6,9 +6,15 @@
 
     <form>
         <input name="username" placeholder="<%= infoUsuario.username %>">
+
+        <input name="email" placeholder="<%= infoUsuario.mail%>">
+
+        <input name="text" placeholder="<%= infoUsuario.nacimiento%>">
+
+        <input name="text" placeholder="<%= infoUsuario.dni%>">
+
     </form> 
     
-	<%- includes('./partials/footer.ejs')%> <!--Footer-->
+	<%- include('./partials/footer.ejs')%> <!--Footer-->
 </body>
 </html>
-

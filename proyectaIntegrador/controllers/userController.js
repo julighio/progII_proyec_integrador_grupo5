@@ -6,7 +6,8 @@ const usercontroller = {
     },
     edit: function(req, res){
         res.render('profile-edit', {
-            infoUsuario: data.users[0]
+            infoUsuario: data.users[0],
+        
         })
 
     },
