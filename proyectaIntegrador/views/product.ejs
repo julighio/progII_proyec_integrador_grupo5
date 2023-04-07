@@ -20,19 +20,24 @@
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
+						<% for (let i =0; i < products.comentarios.lenght; i++){
 						<article>
 							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
-								<p class="user">
-								<strong> <a href="profile.html">Nombre usuario: </a> </strong>
-								 Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora doloribus enim aspernatur fugit corrupti suscipit sit dolore magnam, praesentium explicabo inventore molestias facilis labore. Fugit ipsa mollitia odit inventore consequuntur.</p>
+								<p class="user"> <%= products.comentarios[i].comentario%>
+								</p>
 							</div>
 						</article>
+					</section>
+
+						}
+						//HAY QUE BORRAR TODOS LOS DE ABAJO (CREO) YA QUE CON EL FOR DE ARRIBA SE REPITE...
+						
 						<article>
 							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="profile.html">Nombre usuario: </a> </strong>
+									<strong> <a href="product.ejs">Nombre usuario: </a> </strong>
 									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur.</p>
 							</div>
 						</article>
@@ -40,7 +45,7 @@
 							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="profile.html">Nombre usuario: </a> </strong>
+									<strong> <a href="product.ejs">Nombre usuario: </a> </strong>
 									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit.
 									</p>
 							</div>
@@ -49,7 +54,7 @@
 							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="profile.html">Nombre usuario: </a> </strong>
+									<strong> <a href="product.ejs">Nombre usuario: </a> </strong>
 									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet.</p>
 							</div>
 						</article>
@@ -57,14 +62,14 @@
 							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="profile.html">Nombre usuario: </a> </strong>
+									<strong> <a href="product.ejs">Nombre usuario: </a> </strong>
 									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit.
 									Tempora doloribus enim aspernatur fugit corrupti suscipit sit dolore</p>
 							</div>
 						</article>
 
 					</section>
-					<form class="form" action="" method="POST">
+					<form class="form" action="product.ejs" method="POST">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>
@@ -73,7 +78,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- /product detail -->
+	
     <%- include('./partials/footer.ejs')%> <!--Footer-->
 </body>	
 </html>

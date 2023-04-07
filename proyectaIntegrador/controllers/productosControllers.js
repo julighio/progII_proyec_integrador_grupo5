@@ -1,4 +1,7 @@
 let data = require ('../db/data')
+
+
+
 const controladorProductos = {
     product: function(req,res){
         return res.render ('product')
