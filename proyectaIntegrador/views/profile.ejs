@@ -39,8 +39,7 @@
 			</div>
 			<!-- Show mis productos -->
 			<div class="col-12 col-sm-6 col-lg-3">
-				<% for (let i=0; i<user.products.lenght; i++){
-					%> 
+				<% for (let i=0; i<user.products.lenght; i++){%> 
 					<section class="product-box">
 					<a href="product.ejs">
 						<figure class="product-box_image">
@@ -54,7 +53,7 @@
 				</section>
 				
 				<%}%>
-				
+				<!--Habria que borrar lo de abajo tambien, pero no nos funcionan los fors porque dice que products es undefined-->
 			</div>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
