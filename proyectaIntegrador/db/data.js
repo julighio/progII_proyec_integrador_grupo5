@@ -75,39 +75,6 @@ const data= {
         },
 
     ],
-    miPerfil: [
-        {
-        nombre:'',
-        foto:'',
-        descripcion:'',
-    },
-    {
-        nombre:'',
-        foto:'',
-        descripcion:'',
-    },
-    {
-        nombre:'',
-        foto:'',
-        descripcion:'',
-    },
-    {
-        nombre:'',
-        foto:'',
-        descripcion:'',
-    },
-    {
-        nombre:'',
-        foto:'',
-        descripcion:'',
-    },
-    {
-        nombre:'',
-        foto:'',
-        descripcion:'',
-    },
-
-    ],
     comentarios: [
         {
             nombreDeUsuario:'',

@@ -68,7 +68,7 @@ hr {
 /*====== Main Header ======*/
 .main-header {
   padding: 15px 0;
-  background-color: var(--gray);
+  background-color: rgb(116, 113, 113);
 }
 
 .main-header_home-link,
@@ -130,6 +130,11 @@ hr {
 .left-navbar,
 .right-navbar {
   font-size: 1.5em;
+  font-family: 'Cinzel', serif
+}
+
+.main-header_credit-link{
+  font-family: 'Cinzel', serif
 }
 
 .logout{
@@ -140,7 +145,7 @@ hr {
 }
 
 .logout:hover{
-  color: #1259c3;
+  color: #eeeff2;
 }
 
 .left-navbar a,
@@ -148,17 +153,21 @@ hr {
   display: block;
   padding: 5px 0;
   border-bottom: solid 1px var(--gray);
+  ;
 }
 
+.logo{
+  border-radius: 100px;
+}
 
 
 /*====== Banner ======*/
 .banner {
-  background-image: url(/images/img-home-banner.jpg);
+  background-image: url(/images/foto-vinilo.jpeg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
-  height: 100px;
+  height: 120px;
 }
 
 
@@ -169,9 +178,10 @@ hr {
 }
 
 .products-title {
-  font-size: 2.4em;
+  font-size: 3em;
   font-weight: 400;
   color: var(--gray);
+  font-family: 'Cormorant', serif;
 }
 
 .product-box {
@@ -259,30 +269,36 @@ hr {
 
 /*====== Footer ======*/
 .main-footer {
-  background-color: #ffffff;
+  background-color: #aeaaaa;
   padding: 20px 0;
   margin-top: 80px;
 }
 
-.footer-data {
+.footer-data{
   text-align: center;
 }
 
+
+
 .footer-data i {
-  color: var(--light-blue);
+  color: var(--black);
   font-size: 3.5em;
+  
+
 }
 
 .footer-data h2 {
   color: var(--gray);
-  font-size: 2.4em;
+  font-size: 3em;
   font-weight: 400;
+  font-family: 'Dancing Script', cursive;
 }
 
 .footer-data p {
   color: var(--gray);
-  font-size: 1.5em;
+  font-size: 2em;
   font-weight: 300;
+  font-family: 'Dancing Script', cursive;
 }
 
 .sub-footer {
@@ -319,6 +335,7 @@ hr {
 .product-detail-title {
   font-weight: 400;
   font-size: 2.8em;
+  font-family: 'Cormorant', serif;
 }
 
 .product-detail-description {
@@ -369,7 +386,7 @@ hr {
 }
 
 .buy-now-button {
-  background-color: var(--light-blue);
+  background-color: var(--gray);
   font-size: 1.6em;
   color: #ffffff;
   padding: 15px;
@@ -467,10 +484,11 @@ textarea.form-input {
 .main-title{
   font-size: 25px;
   margin-bottom: 10px;
+  font-family: 'Cormorant', serif;
 }
 
 .btn{
-  background-color: #1259c3;
+  background-color: #777777;
   padding: 10px 20px;
   border-radius: 4px;
   color: #fff;
