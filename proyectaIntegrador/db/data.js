@@ -77,44 +77,26 @@ const data= {
     ],
     comentarios: [
         {
-            nombreDeUsuario:'',
-            comentario:'',
+            nombreDeUsuario:'julighio',
+            comentario:'No me gusto este album',
             imagen:'',
 
         },
         {
-            nombreDeUsuario:'',
-            comentario:'',
+            nombreDeUsuario:'tomasharten',
+            comentario:'Me encanto',
             imagen:'',
 
         },
         {
-            nombreDeUsuario:'',
-            comentario:'',
+            nombreDeUsuario:'benjagrondona',
+            comentario:'Le pongo un 7/10',
             imagen:'',
 
         },
         {
-            nombreDeUsuario:'',
-            comentario:'',
-            imagen:'',
-
-        },
-        {
-            nombreDeUsuario:'',
-            comentario:'',
-            imagen:'',
-
-        },
-        {
-            nombreDeUsuario:'',
-            comentario:'',
-            imagen:'',
-
-        },
-        {
-            nombreDeUsuario:'',
-            comentario:'',
+            nombreDeUsuario:'luciaaurelio',
+            comentario:'Amo',
             imagen:'',
 
         },

@@ -2,12 +2,18 @@ let data = require('../db/data')
 
 const usercontroller = {
     profile: function (req,res) {
-        return res.render ('profile')
+        return res.render ('profile',{
+            infoUsuario: data.users,
+            products: data.products,
+            comentarios:data.comentarios
+        })
+        
     },
     edit: function(req, res){
         res.render('profile-edit', {
-            infoUsuario: data.users[0],
-        
+            infoUsuario: data.users,
+            products: data.products,
+            comentarios:data.comentarios
         })
 
     },

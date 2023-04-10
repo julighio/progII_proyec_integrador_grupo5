@@ -190,6 +190,8 @@ hr {
   overflow: hidden;
   transition: 300ms;
   margin: 20px 0;
+  display: flex;
+  flex-direction: row;
 }
 
 .product-box a {

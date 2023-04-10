@@ -4,71 +4,32 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title">Nombre del producto</h2> 
+			<h2 class="products-title"><%= products[1].nombre %></h2> 
 			<p class="product-detail-description">
-				<a href="/productos/productAdd">Editar</a>
+				<a href="/productos/productAdd">Anadir producto</a>
 			</p>
 		</div>
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src='./images/products/default-image.png' alt="" class="product-detail-img">
+					<img src='<%= products[1].foto %>' alt="" class="product-detail-img">
 					<p class="product-detail-description">
-						Descripción corta del producto. En la página principal solo se ven 2 líneas de estar descripción.Lorem ipsum dolor,
-						sit amet consectetur adipisicing elit. Tae ipsam amet eum, totam dolore libero illo unde? Consectetur dolorem neque
-						veritatis.</p>
+						<%= products[1].descripcion %></p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
-						<% for (let i =0; i < products.comentarios.lenght; i++){ %>
+						<% for (let i =0; i < comentarios.length; i++){ %>
 						<article>
 							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
-								<p class="user"> <%= products.comentarios[i].comentario%>
-								</p>
+								<p class="user"><%= comentarios[i].nombreDeUsuario%></p>
+								<p class="user"> <%= comentarios[i].comentario%> </p>
 							</div>
 						</article>
-					</section>
 						<%}%>
-						<!--HAY QUE BORRAR TODOS LOS DE ABAJO (CREO) YA QUE CON EL FOR DE ARRIBA SE REPITE...-->
-						
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="product.ejs">Nombre usuario: </a> </strong>
-									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur.</p>
-							</div>
-						</article>
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="product.ejs">Nombre usuario: </a> </strong>
-									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									</p>
-							</div>
-						</article>
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="product.ejs">Nombre usuario: </a> </strong>
-									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet.</p>
-							</div>
-						</article>
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="product.ejs">Nombre usuario: </a> </strong>
-									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									Tempora doloribus enim aspernatur fugit corrupti suscipit sit dolore</p>
-							</div>
-						</article>
-
 					</section>
-					<form class="form" action="product.ejs" method="POST">
+						
+					<form class="form" action="/productos/product" method="GET">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 					</form>

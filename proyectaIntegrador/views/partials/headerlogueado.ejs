@@ -11,7 +11,7 @@
 				</div>
 	
 				<div class="col-7 col-md-6">
-					<form action="/productos/search-results" method="GET" class="search-form">
+					<form action="/productos/searchResults" method="GET" class="search-form">
 						<input type="text" name="search" placeholder="Buscar productos, marcas y más" class="search-form_input">
 						<button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
 					</form>
@@ -37,7 +37,7 @@
 	
 				<ul class="right-navbar">
 					<li><a href="/users/profile">
-							Nombre del usuario <i class="fas fa-user"></i>
+							<%= infoUsuario.username%> <i class="fas fa-user"></i>
 						</a>
 					</li>
 					<li>

@@ -4,9 +4,9 @@ let data = require ('../db/data')
 
 const controladorProductos = {
     product: function(req,res){
-        console.log(data.products);
         return res.render ('product',{
-            product: data.products
+            products: data.products,
+            comentarios:data.comentarios
         })
     },
 
@@ -15,7 +15,9 @@ const controladorProductos = {
     },
 
     searchResults: function(req,res) {
-        return res.render('search-results')
+        return res.render('search-results', {
+            products: data.products,
+        })
     },
 }
 

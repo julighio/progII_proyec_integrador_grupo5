@@ -8,16 +8,24 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Resultados de búsqueda</h2>
+				<h2 class="products-title">Resultados de búsqueda:</h2>
 			</div>
-			
-			
-			<h2 class="col-12"> 
-
-
-			</h2>
-
-
+		</div>
+		<div class="container products-wrapper">
+			<div class="d-flex align-items-center">
+				<h2 class="products-title"><%= products[1].nombre %></h2> 
+			</div>
+			<div class="product-detail">
+				<div class="row">
+					<article class="col-12 col-lg-8 product-detail-info">
+						<img src='<%= products[1].foto %>' alt="" class="product-detail-img">
+						<p class="product-detail-description">
+						<%= products[1].descripcion %></p>
+					</article>
+				</div>
+			</div>
+		</div>
+	</div>
     <%- include('./partials/footer.ejs')%> <!-- Footer -->
 
 </body>
