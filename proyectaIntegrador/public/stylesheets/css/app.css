@@ -178,7 +178,7 @@ hr {
 }
 
 .products-title {
-  font-size: 3em;
+  font-size: 4em;
   font-weight: 400;
   color: var(--gray);
   font-family: 'Cormorant', serif;
@@ -267,6 +267,12 @@ hr {
 .product-box:hover i {
   transform: rotate(360deg);
   box-shadow: 0 0 5px var(--green);
+}
+
+.col-12{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 /*====== Footer ======*/

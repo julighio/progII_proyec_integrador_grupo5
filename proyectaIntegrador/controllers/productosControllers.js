@@ -11,7 +11,11 @@ const controladorProductos = {
     },
 
     productAdd: function(req,res){
-        return res.render ('product-add')
+        return res.render ('product-add', {
+            products: data.products,
+            comentarios:data.comentarios,
+            infoUsuario: data.users,
+        })
     },
 
     searchResults: function(req,res) {

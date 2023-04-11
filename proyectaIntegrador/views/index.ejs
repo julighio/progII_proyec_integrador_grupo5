@@ -15,14 +15,16 @@
 				<section class="product-box">
 					<a href="/productos/product">
 						<%for (let i=0; i < products.length; i++){ %>
+						<div>
 							<figure class="product-box_image">
 								<img src=<%= products[i].foto %>>
 							</figure>
 							<article class="product-box_data">
-								<h2><%= products[i].nombre %>></h2>
+								<h2><%= products[i].nombre %></h2>
 								<p><%= products[i].descripcion %></p>
 								<p>Comentarios: 12</p>
 							</article>
+						</div>
 						<%}%>
 					</a>
 				</section>
@@ -39,11 +41,11 @@
 					<a href="/productos/product">
 						<%for (let i=0; i < products.length; i++){ %>
 							<figure class="product-box_image">
-								<img src=<%=products[i].foto%>>
+								<img src=<%=products[i].foto%> >
 							</figure>
 							<article class="product-box_data">
-								<h2><%products[i].nombre%>></h2>
-								<p><%products[i].descripcion%></p>
+								<h2><%= products[i].nombre%></h2>
+								<p><%= products[i].descripcion%></p>
 								<p>Comentarios: 12</p>
 							</article>
 						<%}%>

@@ -5,13 +5,15 @@
 	<%- include('./partials/headerlogueado.ejs')%> <!--Header-->
 
     <form>
-        <input name="username" placeholder="<%= infoUsuario.username %>">
+        <input name="username" placeholder="<%= infoUsuario[0].username %>">
 
-        <input name="email" placeholder="<%= infoUsuario.mail%>">
+        <input name="email" placeholder="<%= infoUsuario[0].mail%>">
 
-        <input name="text" placeholder="<%= infoUsuario.nacimiento%>">
+        <input name="text" placeholder="<%= infoUsuario[0].nacimiento%>">
 
-        <input name="text" placeholder="<%= infoUsuario.dni%>">
+        <input name="text" placeholder="<%= infoUsuario[0].dni%>">
+
+        <div><input type="submit" value="Guardar Cambios"></div>
 
     </form> 
     

@@ -2,12 +2,52 @@
 const data= {
     users: [ 
         {
-            nombre: 'miguel', 
-            username: 'pepe', 
+            nombre: 'julia', 
+            username: 'julighio ', 
             password: '123',
-            mail: 'miguelgovi@gmail.com',
+            mail: 'julighio@gmail.com',
             nacimiento: '19/10/1998',
-            dni: '30578964',
+            dni: '44891513',
+            foto:'',
+
+        },
+        {
+            nombre: 'ramon', 
+            username: 'ramon ', 
+            password: '123',
+            mail: 'ravila@gmail.com',
+            nacimiento: '22/03/2001',
+            dni: '43781936',
+            foto:'',
+
+        },
+        {
+            nombre: 'mateo', 
+            username: 'mateo ', 
+            password: '123',
+            mail: 'mate10@gmail.com',
+            nacimiento: '02/01/2000',
+            dni: '19323516',
+            foto:'',
+
+        },
+        {
+            nombre: 'hernan', 
+            username: 'hernan ', 
+            password: '123',
+            mail: 'hernobiestro@gmail.com',
+            nacimiento: '30/06/2000',
+            dni: '52120011',
+            foto:'',
+
+        },
+        {
+            nombre: 'mati', 
+            username: 'mati ', 
+            password: '123',
+            mail: 'mdematias@gmail.com',
+            nacimiento: '31/12/2000',
+            dni: '41239560',
             foto:'',
 
         }
@@ -83,19 +123,19 @@ const data= {
 
         },
         {
-            nombreDeUsuario:'tomasharten',
+            nombreDeUsuario:'ramon',
             comentario:'Me encanto',
             imagen:'',
 
         },
         {
-            nombreDeUsuario:'benjagrondona',
+            nombreDeUsuario:'mateo',
             comentario:'Le pongo un 7/10',
             imagen:'',
 
         },
         {
-            nombreDeUsuario:'luciaaurelio',
+            nombreDeUsuario:'hernan',
             comentario:'Amo',
             imagen:'',
 
