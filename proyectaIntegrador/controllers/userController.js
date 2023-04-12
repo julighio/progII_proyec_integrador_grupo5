@@ -5,7 +5,8 @@ const usercontroller = {
         return res.render ('profile',{
             infoUsuario: data.users,
             products: data.products,
-            comentarios:data.comentarios
+            comentarios:data.comentarios,
+            usuarioLogueado:true
         })
         
     },
@@ -13,18 +14,23 @@ const usercontroller = {
         res.render('profile-edit', {
             infoUsuario: data.users,
             products: data.products,
-            comentarios:data.comentarios
+            comentarios:data.comentarios,
+            usuarioLogueado: true
         })
 
     },
 
     login: function(req,res) {
-        return res.render('login')
+        return res.render('login', {
+            usuarioLogueado: false
+        }) 
         
     },
     
     register: function(req,res) {
-        return res.render('register')
+        return res.render('register', {
+            usuarioLogueado: false
+        })
     },
 }
 

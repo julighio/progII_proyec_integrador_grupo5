@@ -6,48 +6,48 @@ const data= {
             username: 'julighio ', 
             password: '123',
             mail: 'julighio@gmail.com',
-            nacimiento: '19/10/1998',
+            nacimiento: '11/07/2003',
             dni: '44891513',
             foto:'',
 
         },
         {
-            nombre: 'ramon', 
-            username: 'ramon ', 
-            password: '123',
-            mail: 'ravila@gmail.com',
-            nacimiento: '22/03/2001',
-            dni: '43781936',
+            nombre: 'benjamin', 
+            username: 'benjagrondona ',
+            password: '1234',
+            mail: 'benjagrondona@gmail.com',
+            nacimiento: '18/10/2003',
+            dni: '42671346',
             foto:'',
 
         },
         {
-            nombre: 'mateo', 
-            username: 'mateo ', 
-            password: '123',
-            mail: 'mate10@gmail.com',
-            nacimiento: '02/01/2000',
-            dni: '19323516',
+            nombre: 'tomas', 
+            username: 'tomasharten ', 
+            password: '12345',
+            mail: 'tomasharten@gmail.com',
+            nacimiento: '28/02/2004',
+            dni: '43630146',
             foto:'',
 
         },
         {
-            nombre: 'hernan', 
-            username: 'hernan ', 
-            password: '123',
-            mail: 'hernobiestro@gmail.com',
-            nacimiento: '30/06/2000',
-            dni: '52120011',
+            nombre: 'lucia', 
+            username: 'luliaurelio ', 
+            password: '123456',
+            mail: 'luliaurelio@gmail.com',
+            nacimiento: '20/10/2003',
+            dni: '45233349',
             foto:'',
 
         },
         {
-            nombre: 'mati', 
-            username: 'mati ', 
-            password: '123',
-            mail: 'mdematias@gmail.com',
-            nacimiento: '31/12/2000',
-            dni: '41239560',
+            nombre: 'mora', 
+            username: 'morirobredo ', 
+            password: '1234567',
+            mail: 'morirobredo@gmail.com',
+            nacimiento: '15/03/2004',
+            dni: '42335556',
             foto:'',
 
         }
@@ -123,19 +123,19 @@ const data= {
 
         },
         {
-            nombreDeUsuario:'ramon',
+            nombreDeUsuario:'benjagrondona',
             comentario:'Me encanto',
             imagen:'',
 
         },
         {
-            nombreDeUsuario:'mateo',
+            nombreDeUsuario:'tomasharten',
             comentario:'Le pongo un 7/10',
             imagen:'',
 
         },
         {
-            nombreDeUsuario:'hernan',
+            nombreDeUsuario:'luliaurelio',
             comentario:'Amo',
             imagen:'',
 

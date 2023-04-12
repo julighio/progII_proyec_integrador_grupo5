@@ -6,7 +6,8 @@ const controladorProductos = {
     product: function(req,res){
         return res.render ('product',{
             products: data.products,
-            comentarios:data.comentarios
+            comentarios:data.comentarios,
+            usuarioLogueado: false
         })
     },
 
@@ -15,12 +16,14 @@ const controladorProductos = {
             products: data.products,
             comentarios:data.comentarios,
             infoUsuario: data.users,
+            usuarioLogueado: true
         })
     },
 
     searchResults: function(req,res) {
         return res.render('search-results', {
             products: data.products,
+            usuarioLogueado: false
         })
     },
 }

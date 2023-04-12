@@ -27,21 +27,44 @@
 				<i class="fas fa-bars"></i>
 			</button>
 	
-			<nav class="main-navbar">
-				<ul class="left-navbar">
-					<li><a href="/productos/product">Todos los productos</a></li>
-				</ul>
-	
-				<ul class="right-navbar">
-					<li>
-						<a href="/users/register">Creá tu cuenta <i class="far fa-address-card"></i>
-						</a>
-					</li>
-					<li>
-						<a href="/users/login">Ingresá<i class="fas fa-sign-in-alt"></i></a>
-					</li>
-				</ul>
-			</nav>
+			<% if (usuarioLogueado == true) { %>
+				<nav class="main-navbar">
+					<ul class="left-navbar">
+						<li><a href="/">Todos los productos</a></li>
+						<li><a href="/productos/productAdd">Cargar productos</a></li>
+					</ul>
+		
+					<ul class="right-navbar">
+						<li><a href="/users/profile">
+								<%= infoUsuario[0].username%><i class="fas fa-user"></i>
+							</a>
+						</li>
+						<li>
+							<form action="/" method="GET">
+								<button class="logout" type="submit">
+									Cerrar sesión <i class="fas fa-sign-in-alt"></i>
+								</button>
+							</form>
+						</li>
+					</ul>
+				</nav>
+			<% } else { %>
+				<nav class="main-navbar">
+					<ul class="left-navbar">
+						<li><a href="/">Todos los productos</a></li>
+					</ul>
+		
+					<ul class="right-navbar">
+						<li>
+							<a href="/users/register">Creá tu cuenta <i class="far fa-address-card"></i>
+							</a>
+						</li>
+						<li>
+							<a href="/users/login">Ingresá<i class="fas fa-sign-in-alt"></i></a>
+						</li>
+					</ul>
+				</nav>
+			<% } %>
 		</div>
 	</header>
 	<!-- /Header -->
