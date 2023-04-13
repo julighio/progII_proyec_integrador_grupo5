@@ -17,17 +17,19 @@
 						<%= products[3].descripcion %></p>
 				</article>
 				<div class="col-12 col-lg-4">
+					
 					<section class="comments">
 						<% for (let i =0; i < comentarios.length; i++){ %>
 						<article>
 							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
-								<p class="user"><%= comentarios[i].nombreDeUsuario%></p>
-								<p class="user"> <%= comentarios[i].comentario%> </p>
+								<p class="user"><strong><a href="/users/profile"><%= comentarios[i].nombreDeUsuario%> </a></strong>
+								<%= comentarios[i].comentario%> </p>
 							</div>
 						</article>
 						<%}%>
 					</section>
+					
 					<section class="comments">
 						<form class="form" action="/productos/product" method="GET">
 							<input class="form-input" type="text" value="" placeholder="Agregar comentario">
