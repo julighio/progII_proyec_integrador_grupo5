@@ -1,7 +1,14 @@
 let data = require('../db/data')
-
+const db = require("../database/models/index")
 const usercontroller = {
     profile: function (req,res) {
+        db.Usuario.findAll()
+        .then(function (data) {
+            console.log(data)
+        })
+        .catch(function (error) {
+            console.log(error)
+        })
         return res.render ('profile',{
             infoUsuario: data.users,
             products: data.products,

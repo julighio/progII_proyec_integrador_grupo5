@@ -1,9 +1,10 @@
 let data = require ('../db/data')
-
+const db = require("../database/models/")
 
 
 const controladorProductos = {
     product: function(req,res){
+
         return res.render ('product',{
             products: data.products,
             comentarios:data.comentarios,
