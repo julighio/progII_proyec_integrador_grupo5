@@ -3,14 +3,13 @@ const db= require("../database/models/index")
 const indexController = {
 
     index: function(req,res){
-        db.movies.findAll()
+        db.Producto.findAll()
         .then(function (data) {
             console.log(data)
         })
         .catch(function (error) {
             console.log(error)
         })
-        
         
         
         return res.render('index', {
