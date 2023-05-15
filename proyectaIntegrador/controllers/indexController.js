@@ -1,9 +1,16 @@
 const data = require ('../db/data')
 const db= require("../database/models/index")
+const {gt: mayorQue} = db.Sequelize.Op
 const indexController = {
 
     index: function(req,res){
-        db.Producto.findAll()
+        db.Producto.findAll({
+            where:{
+                id:{[mayorQue]:12}},
+                raw:true
+             })
+               
+
         .then(function (data) {
             console.log(data)
         })
@@ -17,6 +24,7 @@ const indexController = {
             comentarios: data.comentarios,
             usuarioLogueado: false
         })
+
         
 
     },    
