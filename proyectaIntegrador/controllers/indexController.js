@@ -4,13 +4,8 @@ const {gt: mayorQue} = db.Sequelize.Op
 const indexController = {
 
     index: function(req,res){
-        db.Producto.findAll({
-            where:{
-                id:{[mayorQue]:12}},
-                raw:true
-             })
-               
-
+        
+        db.Producto.findAll({raw:true})
         .then(function (data) {
             console.log(data)
         })
