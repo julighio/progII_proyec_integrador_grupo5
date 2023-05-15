@@ -5,8 +5,7 @@ const indexController = {
 
     index: function(req,res){
         db.Producto.findAll({
-            where:{
-                id:{[mayorQue]:12}},
+            
                 raw:true
              })
                

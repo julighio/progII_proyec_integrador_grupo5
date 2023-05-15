@@ -1,7 +1,7 @@
 module.exports= {
   "development": {
     "username": "root",
-    "password": null,
+    "password": "root",
     "database": "tp_integrador", //Aca pasar el nombre de la database ni idea vinilos
     "host": "127.0.0.1",
     "dialect": "mysql"
