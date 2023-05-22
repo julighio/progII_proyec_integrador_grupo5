@@ -5,7 +5,7 @@ const controladorProductos = {
     product: 
 
     function(req,res){
-        db.Comentario.findAll()
+        db.Comentario.findAll({raw:true})
         .then(function (data) {
             console.log(data)
         })

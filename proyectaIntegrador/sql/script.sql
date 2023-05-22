@@ -74,7 +74,7 @@ INSERT INTO productos (usuario_id, nombre, descripcion)
 	VALUES (5, "C-Tangana", "Vinilo de C-Tangana");
 
 INSERT INTO productos (usuario_id, nombre, descripcion)
-	VALUES (6, "Julieta Venegas", "Vinilo de Julieta Venegas");
+	VALUES (5, "Julieta Venegas", "Vinilo de Julieta Venegas");
 
 INSERT INTO productos (usuario_id, nombre, descripcion)
 	VALUES (1, "Mana", "Vinilo de Mana");
@@ -89,7 +89,7 @@ INSERT INTO productos (usuario_id, nombre, descripcion)
 	VALUES (5, "Rels B", "Vinilo de Rels B");
 
 INSERT INTO productos (usuario_id, nombre, descripcion)
-	VALUES (6, "Wos", "Vinilo de Wos");
+	VALUES (4, "Wos", "Vinilo de Wos");
 
 INSERT INTO comentarios  (usuarios_id, productos_id, texto)
 	VALUES (1,1, "Me encanto este album!");
@@ -104,7 +104,7 @@ INSERT INTO comentarios  (usuarios_id, productos_id, texto)
 	VALUES (5,1, "Mi banda preferida!");
 
 INSERT INTO comentarios  (usuarios_id, productos_id, texto)
-	VALUES (6,2, "Me encanto este album!");
+	VALUES (3,2, "Me encanto este album!");
 
 INSERT INTO comentarios  (usuarios_id, productos_id, texto)
 	VALUES (2,2, "Amo!");
@@ -128,7 +128,7 @@ INSERT INTO comentarios  (usuarios_id, productos_id, texto)
 	VALUES (5,3, "Mi banda preferida!");
 
 INSERT INTO comentarios  (usuarios_id, productos_id, texto)
-	VALUES (6,4, "Me encanto este album!");
+	VALUES (1,4, "Me encanto este album!");
 
 INSERT INTO comentarios  (usuarios_id, productos_id, texto)
 	VALUES (2,4, "Amo!");
@@ -149,13 +149,13 @@ INSERT INTO comentarios  (usuarios_id, productos_id, texto)
 	VALUES (3,5, "No es de mis preferidos");
 
 INSERT INTO comentarios  (usuarios_id, productos_id, texto)
-	VALUES (6,5, "Mi banda preferida!");
+	VALUES (2,5, "Mi banda preferida!");
 
 INSERT INTO comentarios  (usuarios_id, productos_id, texto)
 	VALUES (1,6, "Me encanto este album!");
 
 INSERT INTO comentarios  (usuarios_id, productos_id, texto)
-	VALUES (6,6, "Amo!");
+	VALUES (4,6, "Amo!");
 
 INSERT INTO comentarios  (usuarios_id, productos_id, texto)
 	VALUES (5,6, "No es de mis preferidos");
@@ -176,7 +176,7 @@ INSERT INTO comentarios  (usuarios_id, productos_id, texto)
 	VALUES (5,7, "Mi banda preferida!");
 
 INSERT INTO comentarios  (usuarios_id, productos_id, texto)
-	VALUES (6,8, "Me encanto este album!");
+	VALUES (4,8, "Me encanto este album!");
 
 INSERT INTO comentarios  (usuarios_id, productos_id, texto)
 	VALUES (2,8, "Amo!");
@@ -209,4 +209,4 @@ INSERT INTO comentarios  (usuarios_id, productos_id, texto)
 	VALUES (2,10, "No es de mis preferidos");
 
 INSERT INTO comentarios  (usuarios_id, productos_id, texto)
-	VALUES (6,10, "Mi banda preferida!");
+	VALUES (4,10, "Mi banda preferida!");
