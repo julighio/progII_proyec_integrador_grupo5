@@ -30,10 +30,11 @@ const controladorProductos = {
     },
     create: function (req,res) {
         db.Producto.create({
-            image: req.body.image,
-            name: req.body.name,
+            img_url: req.body.image,
+            nombre: req.body.name,
             descripcion:req.body.description,
-            fecha: req.body.fecha
+            fecha: req.body.fecha,
+            usuario_id: 1   /// aca estoy forzando el id del usuario que va a agregar, esto no deberia ser asi!
             
         })
         .then(function (data) {
