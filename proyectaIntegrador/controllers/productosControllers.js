@@ -21,11 +21,26 @@ const controladorProductos = {
     },
 
     productAdd: function(req,res){
-        return res.render ('product-add', {
+          res.render ('product-add', {
             products: data.products,
             comentarios:data.comentarios,
             infoUsuario: data.users,
             usuarioLogueado: true
+        })
+    },
+    create: function (req,res) {
+        db.Producto.create({
+            image: req.body.image,
+            name: req.body.name,
+            descripcion:req.body.description,
+            fecha: req.body.fecha
+            
+        })
+        .then(function (data) {
+           res.redirect("/")
+        }) 
+        .catch(function (err) {
+             console.log(err)
         })
     },
 
