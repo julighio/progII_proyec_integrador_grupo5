@@ -11,8 +11,8 @@
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
 					<h1 class="main-title"> 
-						Usuario: <%= infoUsuario[0].username%>
-						<a href="/users/edit">
+						Usuario: <%= user.username%>
+						<a href="/users/edit/<%= user.id %>">
 							<i class="fas fa-cog"></i>
 						</a>
 					</h1>
@@ -20,7 +20,7 @@
 				</div>
 				<div>
 					<ul class="">
-						<li><%= infoUsuario[0].mail%></li>
+						<li><%= user.mail%></li>
 						<li>8 productos</li>
 						<li>200 seguidores</li>
 						<li>300 comentarios</li>
@@ -38,7 +38,7 @@
 				<h2 class="products-title">Mis productos</h2>
 			</div>
 			<!-- Show mis productos -->
-			<%for (let i=0; i < 4; i++){ %>
+			<!--<%for (let i=0; i < 4; i++){ %>
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
 						<a href="/productos/product">
@@ -54,7 +54,7 @@
 							</div>
 						</a>
 					</section>
-				</div>
+				</div>-->
 				<%}%>
 		</div>
 	</div>

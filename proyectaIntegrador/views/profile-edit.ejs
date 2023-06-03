@@ -5,13 +5,13 @@
 	<%- include('./partials/header.ejs')%> 	<!-- Header -->
 
     <form>
-        <input name="username" placeholder="<%= infoUsuario[0].username %>">
+        <input name="username" value="<%= user.username %>">
 
-        <input name="email" placeholder="<%= infoUsuario[0].mail%>">
+        <input name="email" value="<%= user.mail%>">
 
-        <input name="text" placeholder="<%= infoUsuario[0].nacimiento%>">
+        <input name="text" value="<%= user.nacimiento%>">
 
-        <input name="text" placeholder="<%= infoUsuario[0].dni%>">
+        <input name="text" value="<%= user.dni%>">
 
         <div><input type="submit" value="Guardar Cambios"></div>
 
