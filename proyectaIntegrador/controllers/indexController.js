@@ -4,7 +4,12 @@ const {gt: mayorQue} = db.Sequelize.Op
 const indexController = {
 
     index: function(req,res){
-        db.Producto.findAll({raw:true})
+        db.Producto.findAll({
+            
+                raw:true
+             })
+               
+
         .then(function (data) {
             console.log(data)
             
