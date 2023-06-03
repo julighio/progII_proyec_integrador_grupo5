@@ -6,26 +6,32 @@
 	<%- include('./partials/header.ejs')%> <!-- Header -->
 	<!-- Novedades -->
 	<div class="container products-wrapper">
-		<div class="row">
+		<%if (encontroResultado) {%>
+			<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Resultados de búsqueda:</h2>
+				<h2 class="products-title">Resultados de búsqueda: "<%= loQueBuscaste %>"</h2>
 			</div>
 		</div>
-		<div class="container products-wrapper">
-			<div class="d-flex align-items-center">
-				<h2 class="products-title"><%= products[3].nombre %></h2> 
-			</div>
 			<div class="product-detail">
 				<div class="row">
-					<article class="col-12 col-lg-8 product-detail-info">
-						<a href="/productos/product">
-							<img src='<%= products[3].foto %>' alt="" class="product-detail-img">
-							<p class="product-detail-description">
-							<%= products[3].descripcion %></p>
-						</a>
+					<%for(let i = 0; i<resultados.length; i++){%>
+						<article class="col-12 col-lg-8 product-detail-info">
+							<a href="/productos/product">
+								<img src='<%= resultados[i].foto %>' alt="" class="product-detail-img">
+								<p class="product-detail-description">
+								<%= resultados[i].descripcion %></p>
+							</a>
 					</article>
+					<%}%>
 				</div>
 			</div>
+		<%}else{ %>
+
+			<div class="col-12">
+				<h1 class="products-title">No se encontraron resultados para: "<%= loQueBuscaste %>"</h1>
+			</div>
+			<%}%>
+		
 		</div>
 	</div>
     <%- include('./partials/footer.ejs')%> <!-- Footer -->

@@ -5,27 +5,23 @@ const indexController = {
 
     index: function(req,res){
         db.Producto.findAll({
-            where:{
-                id:{[mayorQue]:12}},
+            
                 raw:true
              })
                
 
         .then(function (data) {
             console.log(data)
+            
         })
         .catch(function (error) {
             console.log(error)
         })
-        
-        
         return res.render('index', {
-            products: data.products,
-            comentarios: data.comentarios,
-            usuarioLogueado: false
-        })
-
-        
+                products: data.products, /// aca tengo que cambiarlo para linkearlo con la base de datos/// 
+                comentarios: data.comentarios,
+                usuarioLogueado: false
+            })      
 
     },    
 }

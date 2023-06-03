@@ -37,6 +37,9 @@ module.exports = function (sequelize,dataTypes){
 
             type:dataTypes.DATE
 
+        },
+        username:{
+            type:dataTypes.STRING
         }
     }
     let config= {
