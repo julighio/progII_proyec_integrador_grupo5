@@ -2,9 +2,7 @@ let data = require ('../db/data')
 const db = require("../database/models/")
 
 const controladorProductos = {
-    product: 
-
-    function(req,res){
+    product: function(req,res){
         db.Comentario.findAll()
         .then(function (data) {
             console.log(data)
