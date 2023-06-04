@@ -52,14 +52,14 @@ module.exports = function (sequelize,dataTypes){
             foreignKey: 'usuario_id'
         })
 
-        usuarios.belongsToMany(models.Comentario,{
+        /*usuarios.belongsToMany(models.Comentario,{
             as: 'comentariosUsuario', 
-            thrpugh: '', /* Tabla pibot*/
+            thrpugh: '', /* Tabla pibot
             foreignKey: 'usuario_id',
             otherKey: 'comentario_id',
             timestamps: false,
-        })
-    }
+        }) */
+    } 
         
     
 
