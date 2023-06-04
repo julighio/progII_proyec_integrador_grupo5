@@ -5,8 +5,12 @@ const indexController = {
 
     index: function(req,res){
         db.Producto.findAll({
-            
-                raw:true
+                raw:true,
+                nest: true,
+                include : [
+                    {association: 'usuarios'},
+                    {association: 'comentariosUsuario'}
+                ]
              })
                
 

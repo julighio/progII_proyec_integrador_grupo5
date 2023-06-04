@@ -21,6 +21,7 @@
 							</figure>
 							<article class="product-box_data">
 								<h2><%= products[i].nombre %></h2>
+								<!-- Aca es donde se pone la relacion, en este caso que ene l producto diga que usuario lo subio <p><%= products[i]?.['usuarios.name']%></p> -->
 								<p><%= products[i].descripcion %></p>
 								<p>Comentarios: <%= comentarios.length %></p>
 							</article>

@@ -9,22 +9,19 @@ module.exports = function (sequelize,dataTypes){
 
         },
         nombre:{
-
             type:dataTypes.STRING,
+            allowNull: false,
 
         },
         descripcion: {
-
             type:dataTypes.STRING
 
         },
         usuario_id:{
-
             type:dataTypes.INTEGER
 
         },
         img_url:{
-
             type:dataTypes.STRING
 
         }
@@ -35,5 +32,17 @@ module.exports = function (sequelize,dataTypes){
     }
     
     const productos = sequelize.define(alias,columnas,config)
+
+    productos.associate = function(models){
+        productos.belongsTo(models.Usuario,{
+            as:'usuario',
+            foreignKey: 'usuario_id'
+        })
+        productos.hasMany(models.Comentario, {
+            as: 'prod',
+            foreignKey: 'producto_id'
+        })
+    }
+
     return productos
 }
