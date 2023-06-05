@@ -11,7 +11,7 @@
 			<!-- Show the "ultimos" products -->
 			<h2 class="col-12"> 
                 <i>
-                    <form action="/users/profile" method="POST" >
+                    <form action="/users/login" method="POST" >
 
                         <div> <input type="email" name="email" placeholder="Escriba su usuario"></div>
 
@@ -26,6 +26,9 @@
                 </i>
 
 			</h2>
+			<!--<p><% if (locals.error!= undefined) { %> 
+				<%= error.message %>
+			<% } %></p> -->
 
         <%- include('./partials/footer.ejs')%> <!--Footer-->
 </body>

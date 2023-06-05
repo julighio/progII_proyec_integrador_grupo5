@@ -1,7 +1,10 @@
 let data = require('../db/data')
 const db = require("../database/models/index")
+const bcrypt =require('bcryptjs')
+const { locals } = require('../app')
 const usercontroller = {
     profile: function (req,res) {
+        console.log('llegamos hasta aca')
         id = req.params.id
         db.Usuario.findByPk(id)
         .then(function (user) {
@@ -44,6 +47,9 @@ const usercontroller = {
     },
 
     login: function(req,res) {
+        //let errors = {}
+        //= {errors.message}
+        //locals.error=errors 
         return res.render('login', {
             usuarioLogueado: false
         }) 
@@ -56,35 +62,55 @@ const usercontroller = {
         })
     },
     create: function (req,res) {
-        let {username,email,password,fecha_de_nac,dni,foto_de_perfil}= req.body
+        let {username,email,password,fecha_de_nac,dni,foto_de_perfil}= req.body;
+        let pasEncriptada = bcrypt.hashSync(password,12);
         db.Usuario.create({
-            username: req.body.username, /// por que no se carga el username??
-            email: req.body.email,
-            password: req.body.password, /// falta encriptar la password
-            fecha_de_nac: req.body.fecha_de_nac, /// por que no se carga la fecha??
-            foto_de_perfil: req.body.foto_de_perfil,
-            dni: req.body.dni
+            username: username, 
+            email: email,
+            password: pasEncriptada, /// falta encriptar la password
+            fecha_de_nac: fecha_de_nac, 
+            foto_de_perfil: foto_de_perfil,
+            dni: dni
         })
         .then(function (data){
-            res.redirect("/users/profile")
+            res.redirect("/users/login")
         })
         .catch(function (err) {
             console.log(err)
         })
     },
     checkUser: function (req,res) {
-        let (email,password)= req.body
+        let errors = {}
+        
+        let {email,password}= req.body
+        
         db.Usuario.findOne({
             where:{
-                email
+                email:email
             }
         })
         .then(function (user) {
-            let comparacionPassword = bcrypt.compareSyn(password, Usuario.password) ///fijarse si esta bien ese Usuario con U mayuscula
+
+        if (user !== null) {
+            let comparacionPassword = bcrypt.compareSync(password, user.password) 
             if(comparacionPassword){
                 console.log("llegue a validar")
-                res.redirect("/users/register"+ user.id)
+                // req.session.usuario = {
+                //     id: user.id,
+                //     name: user.username
+                // }
+                res.redirect("/users/profile/"+ user.id)
+            } else {
+                res.send('Clave erronea')
             }
+    } else{
+            errors.message = "No existe este usuario!"
+            res.locals.errors= errors
+            return res.render("login")
+        }
+        })
+        .catch(function(err){
+            res.send(err)
         })
     }
     
