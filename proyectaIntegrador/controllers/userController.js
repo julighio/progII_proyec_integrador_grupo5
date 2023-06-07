@@ -62,10 +62,11 @@ const usercontroller = {
         })
     },
     create: function (req,res) {
-        let {username,email,password,fecha_de_nac,dni,foto_de_perfil}= req.body;
+        let {username,nombre, email,password,fecha_de_nac,dni,foto_de_perfil}= req.body;
         let pasEncriptada = bcrypt.hashSync(password,12);
         db.Usuario.create({
             username: username, 
+            nombre: nombre,
             email: email,
             password: pasEncriptada, /// falta encriptar la password
             fecha_de_nac: fecha_de_nac, 

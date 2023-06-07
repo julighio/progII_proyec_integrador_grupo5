@@ -10,6 +10,7 @@ module.exports = function (sequelize,dataTypes){
         },
         nombre:{
             type:dataTypes.STRING,
+            allowNull: true,
 
         },
         email: {
@@ -51,13 +52,11 @@ module.exports = function (sequelize,dataTypes){
             foreignKey: 'usuario_id'
         })
 
-        /*usuarios.belongsToMany(models.Comentario,{
+        usuarios.hasMany(models.Comentario,{
             as: 'comentariosUsuario', 
-            thrpugh: '', /* Tabla pibot
             foreignKey: 'usuario_id',
-            otherKey: 'comentario_id',
             timestamps: false,
-        }) */
+        })
     } 
         
     
