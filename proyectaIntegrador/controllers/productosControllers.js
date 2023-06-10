@@ -1,4 +1,3 @@
-let data = require ('../db/data')
 const db = require("../database/models/")
 let op= db.Sequelize.Op
 
@@ -6,9 +5,12 @@ const controladorProductos = {
     product: 
 
     function(req,res){
+        let id = req.params.id
         db.Comentario.findAll({raw:true})
         .then(function (data) {
-            console.log(data)
+            res.render('product', {
+                products: data
+            })
         })
         .catch(function (error) {
             console.log(error)
@@ -16,7 +18,7 @@ const controladorProductos = {
         return res.render ('product',{
             products: data.products,
             comentarios:data.comentarios,
-            usuarioLogueado: false
+            
         })
     },
 
@@ -25,7 +27,7 @@ const controladorProductos = {
             products: data.products,
             comentarios:data.comentarios,
             infoUsuario: data.users,
-            usuarioLogueado: true
+            
         })
     },
     create: function (req,res) {

@@ -5,15 +5,14 @@ const { locals } = require('../app')
 const usercontroller = {
     profile: function (req,res) {
         console.log('llegamos hasta aca')
-        id = req.params.id
+        let id = req.session.user.id 
         db.Usuario.findByPk(id)
         .then(function (user) {
             res.render ('profile',{
             user:user,
-            infoUsuario:data.users,
             products: data.products,
             comentarios:data.comentarios, /// hay que cambiar eso de data
-            usuarioLogueado:true
+            
         })
         })
         .catch(function (error) {
@@ -23,7 +22,7 @@ const usercontroller = {
         
     },
     edit: function(req, res){
-        id = req.params.id
+        let id = req.session.user.id
         db.Usuario.findByPk(id)
         .then(function (user) {
             res.render ('profile',{
@@ -41,7 +40,7 @@ const usercontroller = {
             infoUsuario: data.users,
             products: data.products,
             comentarios:data.comentarios,
-            usuarioLogueado: true
+            
         })
 
     },
@@ -57,9 +56,7 @@ const usercontroller = {
     },
     
     register: function(req,res) {
-        return res.render('register', {
-            usuarioLogueado: false
-        })
+        return res.render('register')
     },
     create: function (req,res) {
         let {username,nombre, email,password,fecha_de_nac,dni,foto_de_perfil}= req.body;
@@ -83,7 +80,7 @@ const usercontroller = {
     checkUser: function (req,res) {
         let errors = {}
         
-        let {email,password}= req.body
+        let {email,password, recordarme}= req.body
         
         db.Usuario.findOne({
             where:{
@@ -96,11 +93,20 @@ const usercontroller = {
             let comparacionPassword = bcrypt.compareSync(password, user.password) 
             if(comparacionPassword){
                 console.log("llegue a validar")
-                // req.session.usuario = {
-                //     id: user.id,
-                //     name: user.username
-                // }
-                res.redirect("/users/profile/"+ user.id)
+                req.session.user = {
+                    id: user.id,
+                    name: user.username,
+                }
+                if (recordarme === 'on'){
+                    res.cookie('recordarUsuario', {
+                        id: user.id,
+                        name: user.username
+                    }, {
+                        maxAge: 1000*60*1
+                    })
+                }
+                //res.redirect("/users/profile/"+ user.id)
+                res.redirect('/users/profile')
             } else {
                 res.send('Clave erronea')
             }

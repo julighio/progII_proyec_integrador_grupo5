@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const session = require('express-session');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -22,6 +23,23 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+  secret: 'Este es el secreto', 
+  resave:false,
+  saveUninitialized:false
+}))
+
+app.use(function(res, req, next){ //next: funcion callback que tiene express
+
+  if (req.session.user !== undefined ){
+    res.locals.estaLogueado = true
+    res.locals.user = req.session.user
+  } else {
+    res.locals.estaLogueado = false
+  }
+  return next()
+})
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);

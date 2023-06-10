@@ -24,10 +24,15 @@ const indexController = {
         return res.render('index', {
                 products: data.products, /// aca tengo que cambiarlo para linkearlo con la base de datos/// 
                 comentarios: data.comentarios,
-                usuarioLogueado: false
+                
             })      
 
-    },    
+    },
+    logout: function(req, res){
+        req.session.user=undefined
+        res.redirect('/')
+
+    } 
 }
 
 module.exports = indexController
