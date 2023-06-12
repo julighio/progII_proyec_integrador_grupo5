@@ -6,19 +6,26 @@ const controladorProductos = {
 
     function(req,res){
         let id = req.params.id
-        db.Comentario.findAll({raw:true})
+        db.Producto.findByPk(id,{
+            include : [
+                {
+                    association: 'comment',
+                    include:[
+                        {association: 'usuarios'}
+                    ]
+                },
+                {association: 'usuarios'}
+            ]
+        }
+                )
         .then(function (data) {
+           // res.send(data)
             res.render('product', {
                 products: data
             })
         })
         .catch(function (error) {
             console.log(error)
-        })
-        return res.render ('product',{
-            products: data.products,
-            comentarios:data.comentarios,
-            
         })
     },
 

@@ -4,7 +4,7 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title"><%= products[3].nombre %></h2> 
+			<h2 class="products-title"><%= products.nombre %></h2> 
 			<p class="product-detail-description">
 				<a href="/productos/productAdd">Anadir producto</a>
 			</p>
@@ -12,25 +12,25 @@
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src='<%= products[3].foto %>' alt="" class="product-detail-img">
+					<img src='<%= products.img_url %>' alt="" class="product-detail-img">
 					<p class="product-detail-description">
-						<%= products[3].descripcion %></p>
+						<%= products.descripcion %></p>
 				</article>
 				<div class="col-12 col-lg-4">
 					<section class="comments">
-						<% for (let i =0; i < comentarios.length; i++){ %>
+						<% for (let i =0; i < products.comment.length; i++){ %>
 						<article>
 							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
 								<p class="user">
 									<strong>
-										<a href="/users/profile"><%= comentarios[i].nombreDeUsuario%> </a>
+										<a href="/users/profile"><%= products.comment[i].usuarios.username%> </a>
 									</strong>
-									<p><%= comentarios[i].comentario%> </p>
+									<p><%= products.comment[i].texto%> </p>
 								</p>
 							</div>
 						</article>
-						<%}%>
+						<%}%> 
 					</section>
 					<section class="comments">
 						<form class="form" action="/productos/product" method="GET">

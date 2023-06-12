@@ -30,13 +30,16 @@ app.use(session({
   saveUninitialized:false
 }))
 
-app.use(function(res, req, next){ //next: funcion callback que tiene express
+app.use(function(req, res, next){ //next: funcion callback que tiene express
 
-  if (req.session.user !== undefined ){
+  if (req.session.user != undefined ){
     res.locals.estaLogueado = true
     res.locals.user = req.session.user
+    console.log('defu=inido');
   } else {
     res.locals.estaLogueado = false
+    res.locals.user=undefined
+    console.log('sin definir');
   }
   return next()
 })

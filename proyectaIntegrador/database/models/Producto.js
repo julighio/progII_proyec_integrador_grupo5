@@ -28,21 +28,22 @@ module.exports = function (sequelize,dataTypes){
     }
     let config= {
         tableName:"productos",
-        timestamps: true
+        timestamps: false,
+        underscored:true
     }
     
-    const productos = sequelize.define(alias,columnas,config)
+    const Producto = sequelize.define(alias,columnas,config)
 
-    productos.associate = function(models){
-        productos.belongsTo(models.Usuario,{
-            as:'usuario',
+    Producto.associate = function(models){
+        Producto.belongsTo(models.Usuario,{
+            as:'usuarios',
             foreignKey: 'usuario_id'
         })
-        productos.hasMany(models.Comentario, {
-            as: 'prod',
-            foreignKey: 'producto_id'
+        Producto.hasMany(models.Comentario, {
+            as: 'comment',
+            foreignKey: 'productos_id'
         })
     }
 
-    return productos
+    return Producto
 }

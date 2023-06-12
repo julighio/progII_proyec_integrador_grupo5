@@ -1,3 +1,5 @@
+
+--
 DROP schema tp_integrador;
 Create schema tp_integrador;
 --
@@ -10,9 +12,13 @@ Create schema tp_integrador;
 
 -- --------------------------------------------------------
 --
--- Estructura de tabla para la tabla `usuarios`
+
 --
 USE tp_integrador;
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
 CREATE TABLE `usuarios` (
   `id` int(10) UNSIGNED NOT NULL,
   `nombre` varchar(200) NOT NULL,
@@ -21,9 +27,9 @@ CREATE TABLE `usuarios` (
   `foto_de_perfil` varchar(200) DEFAULT NULL,
   `dni` int(11) NOT NULL,
   `fecha_de_nac` date NOT NULL,
-  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `deletedAt` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NULL DEFAULT NULL,
   `username` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -31,24 +37,24 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `nombre`, `email`, `password`, `foto_de_perfil`, `dni`, `fecha_de_nac`, `createdAt`, `updatedAt`, `deletedAt`, `username`) VALUES
+INSERT INTO `usuarios` (`id`, `nombre`, `email`, `password`, `foto_de_perfil`, `dni`, `fecha_de_nac`, `created_at`, `updated_at`, `deleted_at`, `username`) VALUES
 (1, 'julia', 'julighio@gmail.com', '123', NULL, 44891513, '2003-07-11', '2023-06-04 16:26:25', '2023-06-04 16:26:25', NULL, 'julighio'),
 (2, 'benjamin', 'benjagrondona@gmail.com', '1234', NULL, 42671346, '2003-10-18', '2023-06-04 16:26:25', '2023-06-04 16:26:25', NULL, 'benjagrondona'),
 (3, 'tomas', 'tomasharten@gmail.com', '12345', NULL, 43630146, '2004-02-28', '2023-06-04 16:26:25', '2023-06-04 16:26:25', NULL, 'tomasharten'),
 (4, 'lucia', 'luliaurelio@gmail.com', '123456', NULL, 45233349, '2003-10-20', '2023-06-04 16:26:25', '2023-06-04 16:26:25', NULL, 'luliaurelio'),
-(5, 'mora', 'morirobredo@gmail.com', '1234567', NULL, 42335556, '2004-03-15', '2023-06-04 16:26:25', '2023-06-04 16:26:25', NULL, 'morirobredo');
---
--- Estructura de tabla para la tabla `productos`
---
+(5, 'mora', 'morirobredo@gmail.com', '1234567', NULL, 42335556, '2004-03-15', '2023-06-04 16:26:25', '2023-06-04 16:26:25', NULL, 'morirobredo'),
+(6, 'Otilia', 'otirivas4@gmail.com', '$2a$12$Jo51qrrY1A3Z9428HjHULOS7RYQ68kkwgcaZpphrZJnTM5YPSkqy6', NULL, 22205269, '2023-06-02', '2023-06-07 20:37:33', '2023-06-07 20:37:33', NULL, 'otiirivas4');
 
+--
+-- --------------------------------------------------------
 CREATE TABLE `productos` (
   `id` int(10) UNSIGNED NOT NULL,
   `nombre` varchar(200) NOT NULL,
   `descripcion` text NOT NULL,
   `usuario_id` int(10) UNSIGNED NOT NULL,
-  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `deletedAt` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NULL DEFAULT NULL,
   `img_url` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -56,7 +62,7 @@ CREATE TABLE `productos` (
 -- Volcado de datos para la tabla `productos`
 --
 
-INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `usuario_id`, `createdAt`, `updatedAt`, `deletedAt`, `img_url`) VALUES
+INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `usuario_id`, `created_at`, `updated_at`, `deleted_at`, `img_url`) VALUES
 (1, 'Soda Estereo', 'Vinilo de Soda Estereo', 1, '2023-06-04 16:26:25', '2023-06-04 16:26:25', NULL, NULL),
 (2, 'The Beatles', 'Vinilo de The Beatles', 2, '2023-06-04 16:26:25', '2023-06-04 16:26:25', NULL, NULL),
 (3, 'Coldplay', 'Vinilo de Coldplay', 3, '2023-06-04 16:26:25', '2023-06-04 16:26:25', NULL, NULL),
@@ -69,11 +75,8 @@ INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `usuario_id`, `createdAt
 (10, 'Wos', 'Vinilo de Wos', 4, '2023-06-04 16:26:25', '2023-06-04 16:26:25', NULL, NULL);
 
 -- --------------------------------------------------------
-
-
--- Estructura de tabla para la tabla `comentarios`
 --
--- Índices para tablas volcadas
+-- Estructura de tabla para la tabla `comentarios`
 --
 
 CREATE TABLE `comentarios` (
@@ -81,16 +84,16 @@ CREATE TABLE `comentarios` (
   `usuarios_id` int(10) UNSIGNED DEFAULT NULL,
   `productos_id` int(10) UNSIGNED DEFAULT NULL,
   `texto` text NOT NULL,
-  `createdAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updatedAt` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `deletedAt` timestamp NULL DEFAULT NULL
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `comentarios`
 --
 
-INSERT INTO `comentarios` (`id_comentario`, `usuarios_id`, `productos_id`, `texto`, `createdAt`, `updatedAt`, `deletedAt`) VALUES
+INSERT INTO `comentarios` (`id_comentario`, `usuarios_id`, `productos_id`, `texto`, `created_at`, `updated_at`, `deleted_at`) VALUES
 (1, 1, 1, 'Me encanto este album!', '2023-06-04 16:26:25', '2023-06-04 16:26:25', NULL),
 (2, 2, 1, 'Amo Soda!', '2023-06-04 16:26:25', '2023-06-04 16:26:25', NULL),
 (3, 3, 1, 'No es de mis preferidos', '2023-06-04 16:26:25', '2023-06-04 16:26:25', NULL),
@@ -131,6 +134,11 @@ INSERT INTO `comentarios` (`id_comentario`, `usuarios_id`, `productos_id`, `text
 (38, 3, 10, 'Amo!', '2023-06-04 16:26:25', '2023-06-04 16:26:25', NULL),
 (39, 2, 10, 'No es de mis preferidos', '2023-06-04 16:26:25', '2023-06-04 16:26:25', NULL),
 (40, 4, 10, 'Mi banda preferida!', '2023-06-04 16:26:25', '2023-06-04 16:26:25', NULL);
+
+-- --------------------------------------------------------
+
+-- Índices para tablas volcadas
+--
 
 --
 -- Indices de la tabla `comentarios`
@@ -175,7 +183,7 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
@@ -195,3 +203,6 @@ ALTER TABLE `productos`
   ADD CONSTRAINT `fk_usuario_id` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`);
 COMMIT;
 
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,4 +1,4 @@
-let data = require('../db/data')
+
 const db = require("../database/models/index")
 const bcrypt =require('bcryptjs')
 const { locals } = require('../app')
@@ -9,9 +9,8 @@ const usercontroller = {
         db.Usuario.findByPk(id)
         .then(function (user) {
             res.render ('profile',{
-            user:user,
-            products: data.products,
-            comentarios:data.comentarios, /// hay que cambiar eso de data
+            user : user 
+            /// hay que cambiar eso de data
             
         })
         })
@@ -26,7 +25,7 @@ const usercontroller = {
         db.Usuario.findByPk(id)
         .then(function (user) {
             res.render ('profile',{
-            user:user,
+           
             //products: user.products,   Esto todavia le falta 
             //comentarios:user.comentarios,
             usuarioLogueado:true

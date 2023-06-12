@@ -41,25 +41,26 @@ module.exports = function (sequelize,dataTypes){
     }
     let config= {
         tableName:"usuarios",
-        timestamps: true
+        timestamps: false
     }
     
-    const usuarios = sequelize.define(alias,columnas,config)
+    const Usuario = sequelize.define(alias,columnas,config)
 
-    usuarios.associate=function(models){
-        usuarios.hasMany(models.Producto, {
-            as: 'usuario',
+    Usuario.associate=function(models){
+        Usuario.hasMany(models.Producto, {
+            as: 'productoUsuarios',
             foreignKey: 'usuario_id'
-        })
+        }),
 
-        usuarios.hasMany(models.Comentario,{
-            as: 'comentariosUsuario', 
-            foreignKey: 'usuario_id',
+        Usuario.hasMany(models.Comentario,{
+            as: 'comentUsuarios', 
+            foreignKey: 'usuarios_id',
             timestamps: false,
+            underscored:true
         })
     } 
         
     
 
-    return usuarios /* Antes de este se hace la relacion porque una ves que se ejecuta el reutrn*/
+    return Usuario /* Antes de este se hace la relacion porque una ves que se ejecuta el reutrn*/
 }

@@ -26,8 +26,8 @@
 			<button class="btn-toggle-navbar">
 				<i class="fas fa-bars"></i>
 			</button>
-	
-			<% if (estaLogueado == true) { %>
+
+			<% if (locals.estaLogueado != undefined && locals.user) { %>
 				<nav class="main-navbar">
 					<ul class="left-navbar">
 						<li><a href="/">Todos los productos</a></li>
