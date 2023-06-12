@@ -1,4 +1,3 @@
-
 const db = require("../database/models/index")
 const bcrypt =require('bcryptjs')
 const { locals } = require('../app')
@@ -6,12 +5,19 @@ const usercontroller = {
     profile: function (req,res) {
         console.log('llegamos hasta aca')
         let id = req.session.user.id 
-        db.Usuario.findByPk(id)
-        .then(function (user) {
-            res.render ('profile',{
-            user : user 
-            /// hay que cambiar eso de data
+        db.Usuario.findByPk(id, {include : [
+            {
+                association: 'productoUsuarios',
+                include:[
+                    {association: 'comment'}
+                ]
+            }
             
+        ]})
+        .then(function (user) {
+            // res.send(user)
+            res.render ('profile',{
+            user : user   
         })
         })
         .catch(function (error) {
@@ -22,26 +28,28 @@ const usercontroller = {
     },
     edit: function(req, res){
         let id = req.session.user.id
-        db.Usuario.findByPk(id)
+        console.log("ENTRA BIEN?")
+        db.Usuario.findByPk(id,{include : [
+            {
+                association: 'productoUsuarios',
+                include:[
+                    {association: 'comment'}
+                ]
+            }
+            
+        ]})
         .then(function (user) {
             res.render ('profile',{
-           
-            //products: user.products,   Esto todavia le falta 
-            //comentarios:user.comentarios,
-            usuarioLogueado:true
+            user:user
+        })
+        res.render('profile-edit', {
+            user: user
+            
         })
         })
         .catch(function (error) {
             console.log(error)
         })
-
-        res.render('profile-edit', {
-            infoUsuario: data.users,
-            products: data.products,
-            comentarios:data.comentarios,
-            
-        })
-
     },
 
     login: function(req,res) {

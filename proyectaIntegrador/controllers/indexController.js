@@ -8,10 +8,14 @@ const indexController = {
         db.Producto.findAll(
             {
                 include : [
-                    {association: 'comment'
-                    , 
-                    include:{association: 'usuarios'}
-                }]
+                    {
+                        association: 'comment',
+                        include:[
+                            {association: 'usuarios'}
+                        ]
+                    },
+                    {association: 'usuarios'}
+                ]
             
              }
              )

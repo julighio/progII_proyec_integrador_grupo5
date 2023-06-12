@@ -14,16 +14,22 @@ const controladorProductos = {
                         {association: 'usuarios'}
                     ]
                 },
-                {association: 'usuarios'}
+                {
+                    
+                    association: 'usuarios', 
+                    include:[
+                        {association: 'productoUsuarios'}
+                    ]
+                }
             ]
         }
                 )
         .then(function (data) {
-           // res.send(data)
+            // res.send(data)
             res.render('product', {
                 products: data
             })
-        })
+         })
         .catch(function (error) {
             console.log(error)
         })

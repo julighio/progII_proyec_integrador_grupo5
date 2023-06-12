@@ -4,10 +4,17 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title"><%= products.nombre %></h2> 
+			<h2 class="products-title"><%= products.nombre %></h2>
+
 			<p class="product-detail-description">
 				<a href="/productos/productAdd">Anadir producto</a>
 			</p>
+			<p>
+				<a href="/users/profile">
+				<%= products.usuarios.username%><i class="fas fa-user"></i>
+				</a>
+			</p>
+			
 		</div>
 		<div class="product-detail">
 			<div class="row">
