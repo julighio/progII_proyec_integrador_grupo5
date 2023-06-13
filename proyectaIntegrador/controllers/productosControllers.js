@@ -30,6 +30,11 @@ const controladorProductos = {
                 products: data
             })
          })
+         .then(function(user){
+            res.render('profile',{
+                user: user
+            })
+        })
         .catch(function (error) {
             console.log(error)
         })
@@ -64,7 +69,7 @@ const controladorProductos = {
         let loQueEstaBuscandoElUsuario = req.query.busqueda
         db.Producto.findAll({where:{
             nombre:{[op.like]: `%${loQueEstaBuscandoElUsuario}%`}},
-            raw:true })
+             })
         .then(function (data) {
         let encontroResultado 
         if (data.length > 0){
@@ -78,6 +83,7 @@ const controladorProductos = {
             resultados: data,
             encontroResultado: encontroResultado
         })
+        // res.send(data)
     })
     .catch(function (err) {
         console.log(err)

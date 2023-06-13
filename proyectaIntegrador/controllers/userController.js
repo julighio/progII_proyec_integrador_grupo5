@@ -4,7 +4,7 @@ const { locals } = require('../app')
 const usercontroller = {
     profile: function (req,res) {
         console.log('llegamos hasta aca')
-        let id = req.session.user.id 
+        let id = req.session.user.id
         db.Usuario.findByPk(id, {include : [
             {
                 association: 'productoUsuarios',
@@ -77,7 +77,13 @@ const usercontroller = {
             foto_de_perfil: foto_de_perfil,
             dni: dni
         })
+        
         .then(function (data){
+            // if (email == user.email){
+            //     res.send("El email ya fue utilizado")
+            // } else if (email == null) {
+            //     res.send("El campo esta vacío")
+            // }
             res.redirect("/users/login")
         })
         .catch(function (err) {
@@ -117,7 +123,7 @@ const usercontroller = {
             } else {
                 res.send('Clave erronea')
             }
-    } else{
+        } else{
             errors.message = "No existe este usuario!"
             res.locals.errors= errors
             return res.render("login")

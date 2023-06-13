@@ -10,8 +10,8 @@
 				<a href="/productos/productAdd">Anadir producto</a>
 			</p>
 			<p>
-				<a href="/users/profile">
-				<%= products.usuarios.username%><i class="fas fa-user"></i>
+				<a href="/users/profile" >
+					<%= products.usuarios.username%><i class="fas fa-user"></i> 
 				</a>
 			</p>
 			
@@ -31,7 +31,7 @@
 							<div class="data">
 								<p class="user">
 									<strong>
-										<a href="/users/profile"><%= products.comment[i].usuarios.username%> </a>
+										<a href="/users/profile/<%- products.comment[i].usuario_id %>"><%= products.comment[i].usuarios.username%> </a>
 									</strong>
 									<p><%= products.comment[i].texto%> </p>
 								</p>

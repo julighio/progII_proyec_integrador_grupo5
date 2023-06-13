@@ -16,7 +16,7 @@
 				<div class="row">
 					<%for(let i = 0; i<resultados.length; i++){%>
 						<article class="col-12 col-lg-8 product-detail-info">
-							<a href="/productos/product">
+							<a href="/productos/product/<%- resultados[i].id %>">
 								<img src='<%= resultados[i].img_url %>' alt="" class="product-detail-img">
 								<p class="product-detail-description">
 								<%= resultados[i].descripcion %></p>
