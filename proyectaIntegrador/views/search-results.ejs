@@ -14,25 +14,32 @@
 		</div>
 			<div class="product-detail">
 				<div class="row">
-					<%for(let i = 0; i<resultados.length; i++){%>
-						<article class="col-12 col-lg-8 product-detail-info">
+					<%for (let i=0; i < resultados.length; i++){ %>
+					<div class="col-12 col-sm-6 col-lg-3">
+						<section class="product-box">
 							<a href="/productos/product/<%- resultados[i].id %>">
-								<img src='<%= resultados[i].img_url %>' alt="" class="product-detail-img">
-								<p class="product-detail-description">
-								<%= resultados[i].descripcion %></p>
+								<div>
+									<figure class="product-box_image">
+										<img src=<%= resultados[i].img_url %>>
+									</figure>
+									<article class="product-box_data">
+										<h2><%= resultados[i].nombre %></h2>
+										<p><%= resultados[i].descripcion %></p>
+										<p>Usuario: <%= resultados[i].usuarios.username %></p>
+									</article>
+								</div>
 							</a>
-					</article>
-					<%}%>
+						</section>
+					</div>
+					<%} %>
 				</div>
 			</div>
-		<%}else{ %>
-
-			<div class="col-12">
+		</div>
+		<%}else { %>
+			<div class="col-12"></div>
 				<h1 class="products-title">No se encontraron resultados para: "<%= loQueBuscaste %>"</h1>
 			</div>
-			<%}%>
-		
-		</div>
+		<%}%>
 	</div>
     <%- include('./partials/footer.ejs')%> <!-- Footer -->
 

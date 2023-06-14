@@ -3,15 +3,15 @@
 <body>
    
 	<%- include('./partials/header.ejs')%> 	<!-- Header -->
+    
+    <form>  <!-- Aca falta rellenar el header con post y toda la movida! -->
+        <input type= "text" name="username" value="<%= user.username %>">
 
-    <form>
-        <input name="username" value="<%= user.username %>">
+        <input type= "text" name="email" value="<%= user.email%>">
 
-        <input name="email" value="<%= user.email%>">
+        <input type= "date" name="fecha" value="<%= user.fecha_de_nac%>">
 
-        <input name="text" value="<%= user.fecha_de_nac%>">
-
-        <input name="text" value="<%= user.dni%>">
+        <input type="number" name="text" value="<%= user.dni%>">
 
         <div><input type="submit" value="Guardar Cambios"></div>
 

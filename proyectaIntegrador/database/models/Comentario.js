@@ -19,11 +19,19 @@ module.exports = function (sequelize,dataTypes){
         texto:{
             type:dataTypes.STRING
 
+        },
+        created_at: {
+            type:dataTypes.DATE,
+            allowNull: true,
+        },
+        updated_at: {
+            type:dataTypes.DATE,
+            allowNull: true,
         }
     }
     let config= {
         tableName:"comentarios",
-        timestamps: false,
+        timestamps: true,
         underscored:true
     }
     

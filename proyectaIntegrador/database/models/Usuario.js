@@ -37,11 +37,20 @@ module.exports = function (sequelize,dataTypes){
         username:{
             type:dataTypes.STRING,
             unique: true
+        },
+        created_at: {
+            type:dataTypes.DATE,
+            allowNull: true,
+        },
+        updated_at: {
+            type:dataTypes.DATE,
+            allowNull: true,
         }
     }
     let config= {
         tableName:"usuarios",
-        timestamps: false
+        timestamps: true,
+        underscored: true
     }
     
     const Usuario = sequelize.define(alias,columnas,config)

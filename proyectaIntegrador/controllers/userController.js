@@ -1,6 +1,7 @@
 const db = require("../database/models/index")
 const bcrypt =require('bcryptjs')
 const { locals } = require('../app')
+const data = require("../db/data")
 const usercontroller = {
     profile: function (req,res) {
         console.log('llegamos hasta aca')
@@ -13,7 +14,9 @@ const usercontroller = {
                 ]
             }
             
-        ]})
+        ],
+        order: [['created_at', 'DESC']]
+        })
         .then(function (user) {
             // res.send(user)
             res.render ('profile',{
@@ -27,29 +30,38 @@ const usercontroller = {
         
     },
     edit: function(req, res){
-        let id = req.session.user.id
+        let id = req.params.id
         console.log("ENTRA BIEN?")
-        db.Usuario.findByPk(id,{include : [
-            {
-                association: 'productoUsuarios',
-                include:[
-                    {association: 'comment'}
-                ]
-            }
-            
-        ]})
-        .then(function (user) {
-            res.render ('profile',{
-            user:user
+        if(req.session.user){
+            if (req.session.user.id != id){
+                return res.redirect(`/users/edit/${req.session.user.id}`)
+            }else{
+                db.Usuario.findByPk(id,
+                    {include :[ 
+                        {
+                            association: 'productoUsuarios',
+                            include:[
+                                {association: 'comment'}
+                            ]
+                        }]
+                    })
+                    
+            .then((user) => {
+                if(user == null){
+                    return res.redirect("/")
+                }else{
+                    return res.render("profile-edit",{user})
+                }
         })
-        res.render('profile-edit', {
-            user: user
-            
-        })
-        })
-        .catch(function (error) {
+            .catch(function (error) {
             console.log(error)
-        })
+            })
+            
+       
+            }
+        }else{
+            res.redirect("/user/login")
+        }  
     },
 
     login: function(req,res) {

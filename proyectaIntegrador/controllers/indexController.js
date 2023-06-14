@@ -15,29 +15,28 @@ const indexController = {
                         ]
                     },
                     {association: 'usuarios'}
-                ]
-            
+                ],
+            order:[['created_at', 'DESC']]
             },
-            // order:[
-
-            // ]
+            
 
              )
         .then(function (data) {
             console.log(data)
             res.render("index",{
-                product : data, 
+                product : data,
                 // user: locals.user SE ME VA
             }
             )
             // res.send(data)
             
         })
-        .then(function(user){
-            res.render('profile',{
-                user: user
-            })
-        })
+        // .then(function(user){
+        //     res.send(user)
+        //     res.render('profile',{
+        //         user: user
+        //     })
+        // })
         .catch(function (error) {
             console.log(error)
             res.send(error )

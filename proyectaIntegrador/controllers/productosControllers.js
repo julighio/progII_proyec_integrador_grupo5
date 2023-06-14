@@ -21,9 +21,9 @@ const controladorProductos = {
                         {association: 'productoUsuarios'}
                     ]
                 }
-            ]
-        }
-                )
+            ],
+            order: [['comment', 'created_at', 'DESC']]
+        })
         .then(function (data) {
             // res.send(data)
             res.render('product', {
@@ -48,7 +48,7 @@ const controladorProductos = {
             
         })
     },
-    create: function (req,res) {
+    prodCreate: function (req,res) {
         db.Producto.create({
             img_url: req.body.image,
             nombre: req.body.name,
@@ -69,7 +69,12 @@ const controladorProductos = {
         let loQueEstaBuscandoElUsuario = req.query.busqueda
         db.Producto.findAll({where:{
             nombre:{[op.like]: `%${loQueEstaBuscandoElUsuario}%`}},
-             })
+            order: [[ 'created_at', 'DESC']],
+            include: [
+                {association: 'usuarios'},
+                {association: 'comment'}
+            ]
+            })
         .then(function (data) {
         let encontroResultado 
         if (data.length > 0){
