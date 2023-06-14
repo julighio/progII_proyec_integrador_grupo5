@@ -100,13 +100,13 @@ const controladorProductos = {
             let comment={
                 productos_id : req.params.id, 
                 usuarios_id: req.session.user.id,
-                texto: req.body.descripcion
+                texto: req.body.comentario
             } 
         
             db.Comentario.create(comment)
-                return res.redirect(`productos/product/${req.params.id}`)
+                return res.redirect(`/productos/product/${req.params.id}`)
             }else {
-                return res.redirect('../users/login')
+                return res.redirect ("/users/login")
             }
     }
 }
