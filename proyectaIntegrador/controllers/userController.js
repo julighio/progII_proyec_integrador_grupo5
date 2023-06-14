@@ -144,7 +144,29 @@ const usercontroller = {
         .catch(function(err){
             res.send(err)
         })
+    },
+    editprofile:function(req,res) {
+        const user = {
+            username: req.body.username,
+            email: req.body.email,
+            fecha_de_nac: req.body.fecha_de_nac,
+            dni: req.body.dni
+        }
+        db.Usuario.update(user,{
+            where:{
+                id:req.session.id
+            }
+        })
+        .then(function(){
+            user.id=req.session.user.id
+            req.session.user=user
+            return res.redirect(`/users/profile/${user.id}`)
+        })
+        .catch(function(error){
+            console.log(error)
+        })
     }
+
     
 }
 

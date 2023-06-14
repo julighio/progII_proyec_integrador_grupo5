@@ -3,6 +3,7 @@ const router = express.Router();
 const controller = require('../controllers/userController')
 /* GET users listing. */
 router.get('/edit/:id', controller.edit);
+router.post("/profileEdit",controller.editprofile)
 /// router.post('/edit/:id', controller.update); falta crear el update
 router.get('/profile', controller.profile);
 router.get('/profile/:id', controller.profile);

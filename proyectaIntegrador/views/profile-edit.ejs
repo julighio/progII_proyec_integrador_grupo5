@@ -3,20 +3,20 @@
 <body>
    
 	<%- include('./partials/header.ejs')%> 	<!-- Header -->
-    
-    <form>  <!-- Aca falta rellenar el header con post y toda la movida! -->
-        <input type= "text" name="username" value="<%= user.username %>">
+    <h2 class="col-12"> <i>   
+        <form action="/users/profileEdit" method="POST">  <!-- Aca falta rellenar el header con post y toda la movida! -->
+            <input type= "text" name="username" value="<%= user.username %>">
 
-        <input type= "text" name="email" value="<%= user.email%>">
+            <input type= "text" name="email" value="<%= user.email%>">
 
-        <input type= "date" name="fecha" value="<%= user.fecha_de_nac%>">
+            <input type= "date" name="fecha" value="<%= user.fecha_de_nac%>">
 
-        <input type="number" name="text" value="<%= user.dni%>">
+            <input type="number" name="text" value="<%= user.dni%>">
 
-        <div><input type="submit" value="Guardar Cambios"></div>
+            <div><input type="submit" value="Guardar Cambios"></div>
 
-    </form> 
-    
+        </form> 
+    </i></h2>
 	<%- include('./partials/footer.ejs')%> <!--Footer-->
 </body>
 </html>

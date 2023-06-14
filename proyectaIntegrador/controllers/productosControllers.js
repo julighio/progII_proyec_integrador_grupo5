@@ -94,8 +94,21 @@ const controladorProductos = {
         console.log(err)
     })
         
+    }, 
+    addComment: function(req, res) {
+        if (req.session.user){
+            let comment={
+                productos_id : req.params.id, 
+                usuarios_id: req.session.user.id,
+                texto: req.body.descripcion
+            } 
+        
+            db.Comentario.create(comment)
+                return res.redirect(`productos/product/${req.params.id}`)
+            }else {
+                return res.redirect('../users/login')
+            }
     }
-    
 }
 
 module.exports = controladorProductos
