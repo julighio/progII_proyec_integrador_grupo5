@@ -1,22 +1,30 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: localhost:8889
+-- Tiempo de generación: 15-06-2023 a las 21:05:41
+-- Versión del servidor: 5.7.39
+-- Versión de PHP: 7.4.33
 
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
 -- Base de datos: `tp_integrador`
+--
+-- Estructura de tabla para la tabla `usuarios`
 --
 DROP schema tp_integrador;
 Create schema tp_integrador;
---
-
--- --------------------------------------------------------
-
---
-
---
-
--- --------------------------------------------------------
---
-
---
-USE tp_integrador;
--- --------------------------------------------------------
+  USE tp_integrador;
 CREATE TABLE `usuarios` (
   `id` int(10) UNSIGNED NOT NULL,
   `nombre` varchar(200) NOT NULL,
@@ -42,8 +50,11 @@ INSERT INTO `usuarios` (`id`, `nombre`, `email`, `password`, `foto_de_perfil`, `
 (4, 'lucia', 'luliaurelio@gmail.com', '123456', NULL, 45233349, '2003-10-20', '2023-06-04 16:26:25', '2023-06-04 16:26:25', NULL, 'luliaurelio'),
 (5, 'mora', 'morirobredo@gmail.com', '1234567', NULL, 42335556, '2004-03-15', '2023-06-04 16:26:25', '2023-06-04 16:26:25', NULL, 'morirobredo'),
 (6, 'Otilia', 'otirivas4@gmail.com', '$2a$12$Jo51qrrY1A3Z9428HjHULOS7RYQ68kkwgcaZpphrZJnTM5YPSkqy6', NULL, 22205269, '2023-06-02', '2023-06-07 20:37:33', '2023-06-07 20:37:33', NULL, 'otiirivas4'),
-(7, 'tom', 'thom@gmail.com', '$2a$12$ruQFOflbHUiuR3oJ68.Eq.Z416vmMDK8GERiI2OWGvFZcDzX4QOVW', NULL, 456282984, '2023-06-01', '2023-06-12 20:20:46', '2023-06-12 20:20:46', NULL, 'tomatel');
+(7, 'tom', 'thom@gmail.com', '$2a$12$ruQFOflbHUiuR3oJ68.Eq.Z416vmMDK8GERiI2OWGvFZcDzX4QOVW', NULL, 456282984, '2023-06-01', '2023-06-12 20:20:46', '2023-06-12 20:20:46', NULL, 'tomatel'),
+(9, 'yas', 'yasr@gmail.com', '$2a$12$h8lqQOOhpFVmI55phoFpJONUceyPNaQez6aOz.wom28xsBIPAmdD.', NULL, 28748021, '2023-06-03', '2023-06-15 00:05:57', '2023-06-15 00:05:57', NULL, 'yayu'),
+(14, 'martu', 'martughio@gmail.com', '$2a$12$Ir3xdI599r1faUZwDDcJdeCC8VeQ0SO0C/p0dUO823wWi2Y5tfHEy', NULL, 928390242, '2023-06-03', '2023-06-15 20:39:21', '2023-06-15 20:39:21', NULL, 'martugr');
 
+-- --------------------------------------------------------
 --
 -- Estructura de tabla para la tabla `productos`
 --
@@ -73,7 +84,8 @@ INSERT INTO `productos` (`id`, `nombre`, `descripcion`, `usuario_id`, `created_a
 (7, 'Maroon 5', 'Vinilo de Maroon 5', 2, '2023-06-04 16:26:25', '2023-06-12 20:53:14', NULL, 'https://http2.mlstatic.com/D_NQ_NP_899689-MLM69471412813_052023-O.webp'),
 (8, 'Myke Towers', 'Vinilo de Myke Towers', 3, '2023-06-04 16:26:25', '2023-06-12 20:48:21', NULL, 'https://pro2-bar-s3-cdn-cf1.myportfolio.com/28930860-437c-4efa-9eef-fd179cd2dd47/2577db48-a608-47de-bda9-3460b7d4ee4c_rw_1920.jpg?h=785337145d4076bcdcf5405338caa8cc'),
 (9, 'Rels B', 'Vinilo de Rels B', 5, '2023-06-04 16:26:25', '2023-06-12 20:53:14', NULL, 'https://mir-s3-cdn-cf.behance.net/projects/404/72affe112644465.Y3JvcCwyMTczLDE3MDAsMTEyLDA.jpg'),
-(10, 'Wos', 'Vinilo de Wos', 4, '2023-06-04 16:26:25', '2023-06-12 20:48:21', NULL, 'https://d3ugyf2ht6aenh.cloudfront.net/stores/002/687/119/products/caravana-frente1-fdec812a6a2ea6217e16787309154897-480-0.webp');
+(10, 'Wos', 'Vinilo de Wos', 4, '2023-06-04 16:26:25', '2023-06-12 20:48:21', NULL, 'https://d3ugyf2ht6aenh.cloudfront.net/stores/002/687/119/products/caravana-frente1-fdec812a6a2ea6217e16787309154897-480-0.webp'),
+(15, 'Duki', 'Vinilo de duki', 14, '2023-06-15 20:40:05', '2023-06-15 20:40:05', NULL, 'https://http2.mlstatic.com/D_NQ_NP_735803-MLA48487747727_122021-W.jpg');
 
 -- --------------------------------------------------------
 --
@@ -134,18 +146,19 @@ INSERT INTO `comentarios` (`id_comentario`, `usuarios_id`, `productos_id`, `text
 (37, 1, 10, 'Me encanto este album!', '2023-06-04 16:26:25', '2023-06-04 16:26:25', NULL),
 (38, 3, 10, 'Amo!', '2023-06-04 16:26:25', '2023-06-04 16:26:25', NULL),
 (39, 2, 10, 'No es de mis preferidos', '2023-06-04 16:26:25', '2023-06-04 16:26:25', NULL),
-(40, 4, 10, 'Mi banda preferida!', '2023-06-04 16:26:25', '2023-06-04 16:26:25', NULL);
+(40, 4, 10, 'Mi banda preferida!', '2023-06-04 16:26:25', '2023-06-04 16:26:25', NULL),
+(41, 7, 2, 'Amo', '2023-06-14 14:54:39', '2023-06-14 14:54:39', NULL),
+(42, 7, 3, 'Tremendo show', '2023-06-14 14:57:36', '2023-06-14 14:57:36', NULL),
+(43, 7, 2, 'no me gusta', '2023-06-14 15:09:24', '2023-06-14 15:09:24', NULL),
+(44, 7, 15, 'Me encanto este album', '2023-06-15 20:40:27', '2023-06-15 20:40:27', NULL),
+(45, 7, 15, 'Duki es mi cantante preferido', '2023-06-15 20:40:35', '2023-06-15 20:40:35', NULL);
 
 -- --------------------------------------------------------
 
---
-
 
 --
--- Estructura de tabla para la tabla `usuarios`
+
 --
-
-
 -- Índices para tablas volcadas
 --
 
@@ -180,19 +193,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  MODIFY `id_comentario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id_comentario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Restricciones para tablas volcadas
@@ -211,3 +224,7 @@ ALTER TABLE `comentarios`
 ALTER TABLE `productos`
   ADD CONSTRAINT `fk_usuario_id` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`);
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

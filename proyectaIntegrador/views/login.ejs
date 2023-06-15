@@ -26,9 +26,10 @@
                 </i>
 
 			</h2>
-			<!--<p><% if (locals.error!= undefined) { %> 
-				<%= error.message %>
-			<% } %></p> -->
+			<% if (locals.errors) {%>
+				<h2><%= errors.message %></h2>
+			<% } %>
+			
 
         <%- include('./partials/footer.ejs')%> <!--Footer-->
 </body>

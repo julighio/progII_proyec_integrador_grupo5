@@ -172,7 +172,10 @@ const usercontroller = {
                 //res.redirect("/users/profile/"+ user.id)
                 res.redirect('/')
             } else {
-                res.send('Clave erronea')
+                let errors={}
+                errors.message = "Contraseña Incorrecta"
+                res.locals.errors = errors 
+                return res.render('login')
             }
         } else{
             let errors = {}
