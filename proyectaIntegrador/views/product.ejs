@@ -5,12 +5,18 @@
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"><%= products.nombre %></h2>
-
 			<p class="product-detail-description">
-				<a href="/productos/productAdd">Anadir producto</a>
+				<a href="/productos/product-edit" >
+					Editar producto 
+				</a>
 			</p>
-			<p>
-				<a href="/users/profile" >
+			<p class="product-detail-description">
+				<form action="/">
+
+				</form>
+			</p>
+			<p class="product-detail-description">
+				<a href="/users/profile/<%=products.usuarios.id %>" >
 					<%= products.usuarios.username%><i class="fas fa-user"></i> 
 				</a>
 			</p>
@@ -31,7 +37,7 @@
 							<div class="data">
 								<p class="user">
 									<strong>
-										<a href="/users/profile/<%- products.comment[i].usuario_id %>"><%= products.comment[i].usuarios.username%> </a>
+										<a href="/users/profile/<%= products.comment[i].usuarios_id %>"><%= products.comment[i].usuarios.username%> </a>
 									</strong>
 									<p><%= products.comment[i].texto%> </p>
 								</p>

@@ -12,6 +12,7 @@ router.get ('/product', productosControllers.product)
 router.get ('/productAdd', productosControllers.productAdd)
 router.post ('/productAdd/prodCreate', productosControllers.prodCreate)
 router.get ('/searchResults', productosControllers.searchResults)
+router.post("/product-edit", productosControllers.editProd)
 
 
 module.exports= router;

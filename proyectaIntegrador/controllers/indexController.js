@@ -50,6 +50,8 @@ const indexController = {
     },
     logout: function(req, res){
         req.session.user=undefined
+        req.session.destroy()
+        res.clearCookie('recordarUsuario')
         res.redirect('/')
 
     } 

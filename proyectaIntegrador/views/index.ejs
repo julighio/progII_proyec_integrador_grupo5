@@ -47,10 +47,10 @@
 							<article class="product-box_data">
 								<h2><%= product[i].nombre %></h2>
 								<p><%= product[i].descripcion %></p>
-								<p>Usuario: <%= product[i].usuarios.username %></p>
+								<a href="/users/profile/<%= product[i].usuarios.id  %>"><%= product[i].usuarios.username%> </a>
 							</article>
-						
 					</a>
+					
 				</section>
 			</div>
 			<%}%>

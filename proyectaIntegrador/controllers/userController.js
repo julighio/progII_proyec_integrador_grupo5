@@ -5,7 +5,13 @@ const data = require("../db/data")
 const usercontroller = {
     profile: function (req,res) {
         console.log('llegamos hasta aca')
-        let id = req.session.user.id
+        let id 
+        if(req.session.user){
+            id = req.session.user.id
+        } else {
+            id = req.params.id
+        }
+        
         db.Usuario.findByPk(id, {include : [
             {
                 association: 'productoUsuarios',
@@ -60,50 +66,70 @@ const usercontroller = {
        
             }
         }else{
-            res.redirect("/user/login")
+            res.redirect("/users/login")
         }  
     },
 
     login: function(req,res) {
-        //let errors = {}
-        //= {errors.message}
-        //locals.error=errors 
-        return res.render('login', {
-            usuarioLogueado: false
-        }) 
+        if (req.session.user){
+            res.redirect('/')
+        }else{
+            res.render('login')
+        }  
         
     },
     
     register: function(req,res) {
-        return res.render('register')
+        if (req.session.user){
+            res.redirect('/')
+        }else{
+            res.render('register')
+        } 
+
     },
     create: function (req,res) {
         let {username,nombre, email,password,fecha_de_nac,dni,foto_de_perfil}= req.body;
-        let pasEncriptada = bcrypt.hashSync(password,12);
-        db.Usuario.create({
-            username: username, 
-            nombre: nombre,
-            email: email,
-            password: pasEncriptada, /// falta encriptar la password
-            fecha_de_nac: fecha_de_nac, 
-            foto_de_perfil: foto_de_perfil,
-            dni: dni
-        })
+        if (
+            (password !== '') &&
+            (password.length > 4) &&
+            (email !== '') &&
+            (email !== req.locals.email)
+        ){
+            let pasEncriptada = bcrypt.hashSync(password,12);
+            db.Usuario.create({
+                username: username, 
+                nombre: nombre,
+                email: email,
+                password: pasEncriptada, /// falta encriptar la password
+                fecha_de_nac: fecha_de_nac, 
+                foto_de_perfil: foto_de_perfil,
+                dni: dni
+            })
+            .then(function (data){
+                
+                res.redirect("/users/login")
+            })
+            .catch(function (err) {
+                console.log(err)
+            })
+        } else{
+            let errors = {}
+            if (password == '') {
+                errors.message = "Debes ingresar una contraseña"
+            } else if (password.length <4){
+                errors.message = "Debes ingresar una contraseña de más de 3 caracteres"
+            } else if (email == ''){
+                errors.message = "Debes ingresar un email"
+            }else {
+                errors.message = "Ese email ya fue utilizado"
+            }
+            res.locals.errors = errors
+            res.render('register')
+        }
         
-        .then(function (data){
-            // if (email == user.email){
-            //     res.send("El email ya fue utilizado")
-            // } else if (email == null) {
-            //     res.send("El campo esta vacío")
-            // }
-            res.redirect("/users/login")
-        })
-        .catch(function (err) {
-            console.log(err)
-        })
+        
     },
     checkUser: function (req,res) {
-        let errors = {}
         
         let {email,password, recordarme}= req.body
         
@@ -120,7 +146,7 @@ const usercontroller = {
                 console.log("llegue a validar")
                 req.session.user = {
                     id: user.id,
-                    name: user.username,
+                    username: user.username,
                 }
                 if (recordarme === 'on'){
                     res.cookie('recordarUsuario', {
@@ -136,8 +162,9 @@ const usercontroller = {
                 res.send('Clave erronea')
             }
         } else{
-            errors.message = "No existe este usuario!"
+            let errors = {}
             res.locals.errors= errors
+            errors.message = "No existe este usuario!"
             return res.render("login")
         }
         })
@@ -157,7 +184,7 @@ const usercontroller = {
                 id:req.session.id
             }
         })
-        .then(function(){
+        .then(function(user){
             user.id=req.session.user.id
             req.session.user=user
             return res.redirect(`/users/profile/${user.id}`)

@@ -41,34 +41,37 @@ const controladorProductos = {
     },
 
     productAdd: function(req,res){
-          res.render ('product-add', {
-            products: data.products,
-            comentarios:data.comentarios,
-            infoUsuario: data.users,
-            
-        })
+        if (req.session.user){
+            res.render ('product-add')
+        }else{
+            res.render('/')
+        }
+          
     },
     prodCreate: function (req,res) {
-        db.Producto.create({
-            img_url: req.body.image,
-            nombre: req.body.name,
-            descripcion:req.body.description,
-            fecha: req.body.fecha,
-            usuario_id: 1   /// aca estoy forzando el id del usuario que va a agregar, esto no deberia ser asi!
-            
-        })
-        .then(function (data) {
-           res.redirect("/")
-        }) 
-        .catch(function (err) {
-             console.log(err)
-        })
+        if (req.session.user){
+            let crear={
+                img_url: req.body.image,
+                nombre: req.body.name,
+                descripcion: req.body.description,
+                usuario_id: req.session.user.id
+            }
+            db.Producto.create(crear)
+                return res.redirect('/')
+        } else {
+            return res.redirect('/users/login')
+        }
     },
 
     searchResults: function(req,res) {
         let loQueEstaBuscandoElUsuario = req.query.busqueda
-        db.Producto.findAll({where:{
-            nombre:{[op.like]: `%${loQueEstaBuscandoElUsuario}%`}},
+        db.Producto.findAll({
+            where: {
+                [op.or]: [ 
+                  { nombre: { [op.like]: `%${loQueEstaBuscandoElUsuario}%` } },
+                  { descripcion: { [op.like]: `%${loQueEstaBuscandoElUsuario}%` } },
+                ],
+              },
             order: [[ 'created_at', 'DESC']],
             include: [
                 {association: 'usuarios'},
@@ -90,9 +93,9 @@ const controladorProductos = {
         })
         // res.send(data)
     })
-    .catch(function (err) {
-        console.log(err)
-    })
+        .catch(function (err) {
+            console.log(err)
+        })
         
     }, 
     addComment: function(req, res) {
@@ -108,6 +111,20 @@ const controladorProductos = {
             }else {
                 return res.redirect ("/users/login")
             }
+    },
+    deleteProd: function(req, res){
+
+    },
+    editProd: function(req, res){
+        res.render('product-edit', {
+            nombre: req.body.nombre,
+            descripcion: req.body.descripcion,
+            img_url: req.body.image,
+            id: req.body.id
+        })
+    }, 
+    updateProd: function(req, res){
+        
     }
 }
 

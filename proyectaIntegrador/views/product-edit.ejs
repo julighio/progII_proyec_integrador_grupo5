@@ -1,0 +1,18 @@
+<%- include('./partials/head.ejs')%> <!--Head-->
+<body>
+   
+	<%- include('./partials/header.ejs')%> 	<!-- Header -->
+    <h2 class="col-12"> <i>   
+        <form action="/users/" method="POST">  <!-- Aca falta rellenar el header con post y toda la movida! -->
+            <input type= "text" name="nombre" value="<%= //user.username %>">
+
+            <input type= "text" name="descripcion" value="<%= //user.email%>">
+
+            <input type= "text" name="image" value="<%= //user.fecha_de_nac%>">
+
+            <input type="submit" value ="Guardar cambios realizados">
+        </form> 
+    </i></h2>
+	<%- include('./partials/footer.ejs')%> <!--Footer-->
+</body>
+</html>
