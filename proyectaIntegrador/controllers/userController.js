@@ -6,10 +6,11 @@ const usercontroller = {
     profile: function (req,res) {
         console.log('llegamos hasta aca')
         let id 
-        if(req.session.user){
+        let id_usuario = req.params.id
+        if(req.session.user == id_usuario){
             id = req.session.user.id
-        } else {
-            id = req.params.id
+        } else if(req.session.user != id_usuario) {
+            id = id_usuario
         }
         
         db.Usuario.findByPk(id, {include : [
@@ -26,7 +27,7 @@ const usercontroller = {
         .then(function (user) {
             // res.send(user)
             res.render ('profile',{
-            user : user   
+            usuario : user   
         })
         })
         .catch(function (error) {
@@ -150,26 +151,26 @@ const usercontroller = {
                 email:email
             }
         })
-        .then(function (user) {
+        .then(function (usuario) {
 
-        if (user !== null) {
-            let comparacionPassword = bcrypt.compareSync(password, user.password) 
+        if (usuario !== null) {
+            let comparacionPassword = bcrypt.compareSync(password, usuario.password) 
             if(comparacionPassword){
                 console.log("llegue a validar")
                 req.session.user = {
-                    id: user.id,
-                    username: user.username,
+                    id: usuario.id,
+                    username: usuario.username,
                 }
                 if (recordarme === 'on'){
                     res.cookie('recordarUsuario', {
-                        id: user.id,
-                        name: user.username
+                        id: usuario.id,
+                        name: usuario.username
                     }, {
                         maxAge: 1000*60*1
                     })
                 }
                 //res.redirect("/users/profile/"+ user.id)
-                res.redirect('/users/profile')
+                res.redirect('/')
             } else {
                 res.send('Clave erronea')
             }

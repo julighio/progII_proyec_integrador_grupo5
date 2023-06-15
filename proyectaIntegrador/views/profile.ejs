@@ -11,8 +11,8 @@
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
 					<h1 class="main-title"> 
-						Usuario: <%= user.username%>
-						<a href="/users/edit/<%= user.id %>">
+						Usuario: <%= usuario.username%>
+						<a href="/users/edit/<%= usuario.id %>">
 							<i class="fas fa-cog"></i>
 						</a>
 					</h1>
@@ -20,8 +20,8 @@
 				</div>
 				<div>
 					<ul class="">
-						<li><%= user.mail%></li>
-						<li> <%= user.productoUsuarios.length %> poductos</li>
+						<li><%= usuario.mail%></li>
+						<li> <%= usuario.productoUsuarios.length %> poductos</li>
 						<li>200 seguidores</li>
 						<li>300 comentarios</li>
 					</ul>
@@ -38,17 +38,17 @@
 				<h2 class="products-title">Mis productos</h2>
 			</div>
 			<!-- Show mis productos -->
-			<%for (let i=0; i< user.productoUsuarios.length; i++){ %>
+			<%for (let i=0; i< usuario.productoUsuarios.length; i++){ %>
 				<div class="col-12 col-sm-6 col-lg-3">
 					<section class="product-box">
-						<a href="/productos/product/<%- user.productoUsuarios[i].id %>">
+						<a href="/productos/product/<%- usuario.productoUsuarios[i].id %>">
 							<div>
 								<figure class="product-box_image">
-									<img src=<%= user.productoUsuarios[i].img_url %>>
+									<img src=<%= usuario.productoUsuarios[i].img_url %>>
 								</figure>
 								<article class="product-box_data">
-									<h2><%=  user.productoUsuarios[i].nombre %></h2>
-									<p><%=  user.productoUsuarios[i].descripcion %></p>
+									<h2><%=  usuario.productoUsuarios[i].nombre %></h2>
+									<p><%=  usuario.productoUsuarios[i].descripcion %></p>
 								</article>
 							</div>
 						</a>
