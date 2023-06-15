@@ -89,11 +89,26 @@ const usercontroller = {
     },
     create: function (req,res) {
         let {username,nombre, email,password,fecha_de_nac,dni,foto_de_perfil}= req.body;
+        db.Usuario.findOne({
+            where: {
+                email:email
+            }
+        })
+        .then(function(email_repetido){
+            if (email_repetido !== undefined){
+                let errors = {}
+                errors.message = "Ya a existe un usuario con ese email"
+                res.locals.errors=errors
+                res.render('register')
+            }
+        })
+        .catch(function(err){
+            console.log(err)
+        })
         if (
             (password !== '') &&
             (password.length > 4) &&
-            (email !== '') &&
-            (email !== req.locals.email)
+            (email !== '')
         ){
             let pasEncriptada = bcrypt.hashSync(password,12);
             db.Usuario.create({
@@ -118,15 +133,12 @@ const usercontroller = {
                 errors.message = "Debes ingresar una contraseña"
             } else if (password.length <4){
                 errors.message = "Debes ingresar una contraseña de más de 3 caracteres"
-            } else if (email == ''){
+            } else {
                 errors.message = "Debes ingresar un email"
-            }else {
-                errors.message = "Ese email ya fue utilizado"
             }
             res.locals.errors = errors
             res.render('register')
         }
-        
         
     },
     checkUser: function (req,res) {
