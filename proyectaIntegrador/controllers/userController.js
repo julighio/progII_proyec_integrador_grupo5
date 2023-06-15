@@ -90,57 +90,57 @@ const usercontroller = {
     },
     create: function (req,res) {
         let {username,nombre, email,password,fecha_de_nac,dni,foto_de_perfil}= req.body;
-        db.Usuario.findOne({
-            where: {
-                email:email
-            }
-        })
-        .then(function(email_repetido){
-            if (email_repetido !== undefined){
-                let errors = {}
-                errors.message = "Ya a existe un usuario con ese email"
-                res.locals.errors=errors
-                res.render('register')
-            }
-        })
-        .catch(function(err){
-            console.log(err)
-        })
         if (
-            (password !== '') &&
-            (password.length > 4) &&
-            (email !== '')
+            (password == '') ||
+            (password.length < 4) ||
+            (email == '')
         ){
-            let pasEncriptada = bcrypt.hashSync(password,12);
-            db.Usuario.create({
-                username: username, 
-                nombre: nombre,
-                email: email,
-                password: pasEncriptada, /// falta encriptar la password
-                fecha_de_nac: fecha_de_nac, 
-                foto_de_perfil: foto_de_perfil,
-                dni: dni
-            })
-            .then(function (data){
-                
-                res.redirect("/users/login")
-            })
-            .catch(function (err) {
-                console.log(err)
-            })
-        } else{
             let errors = {}
             if (password == '') {
                 errors.message = "Debes ingresar una contraseña"
-            } else if (password.length <4){
+            } else if (password.length < 4){
                 errors.message = "Debes ingresar una contraseña de más de 3 caracteres"
             } else {
                 errors.message = "Debes ingresar un email"
             }
             res.locals.errors = errors
             res.render('register')
+        }else {
+            db.Usuario.findOne({
+                where: {
+                    email:email
+                }
+            })
+            .then(function(data){
+                if (data){
+                    let errors = {}
+                    errors.message = "Ya a existe un usuario con ese email"
+                    res.locals.errors=errors
+                    res.render('register')
+                } else {
+                    let pasEncriptada = bcrypt.hashSync(password,12);
+                    db.Usuario.create({
+                        username: username, 
+                        nombre: nombre,
+                        email: email,
+                        password: pasEncriptada, /// falta encriptar la password
+                        fecha_de_nac: fecha_de_nac, 
+                        foto_de_perfil: foto_de_perfil,
+                        dni: dni
+                    })
+                    .then(function (data){
+                        
+                        res.redirect("/users/login")
+                    })
+                    .catch(function (err) {
+                        console.log(err)
+                    })
+                }
+            })
+            .catch(function(err){
+                console.log(err)
+            })
         }
-        
     },
     checkUser: function (req,res) {
         
