@@ -12,11 +12,15 @@
 				<div class="d-flex align-items-center ">
 					<h1 class="main-title"> 
 						Usuario: <%= usuario.username%>
+						
+					</h1>
+					<% if (estaLogueado && user.id == usuario.id) { %>
 						<a href="/users/edit/<%= usuario.id %>">
 							<i class="fas fa-cog"></i>
 						</a>
-					</h1>
-					<a class="btn mt-3 ml-4" href="">SEGUIR</a>
+					<% } else { %>
+						<a class="btn mt-3 ml-4" href="">SEGUIR</a>
+					<% } %>
 				</div>
 				<div>
 					<ul class="">

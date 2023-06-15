@@ -1,4 +1,5 @@
 const db = require("../database/models/")
+const { products } = require("../db/data")
 let op= db.Sequelize.Op
 
 const controladorProductos = {
@@ -113,12 +114,18 @@ const controladorProductos = {
             }
     },
     deleteProd: function(req, res){
-        db.Comentario.destroy(
-            {where:{productos_id:req.body.id}}
-        )
-        db.Producto.destroy(
-            {where:{id:req.body.id}})
-      return res.redirect("/")
+        let id = req.params.id
+        db.Producto.findByPk(id)
+        .then(function(data){
+            db.Producto.destroy(
+                {where:{id: id}}
+            )
+            return res.redirect("/")
+        })
+        .catch(function(err){
+            console.log(err)
+        })
+        
 
     },
     editProd: function(req, res){
@@ -128,7 +135,7 @@ const controladorProductos = {
             res.render('product-edit', {
                 nombre: data.nombre,
                 descripcion: data.descripcion,
-                img_url: data.image,
+                img_url: data.img_url,
                 id: data.id
             })
         })

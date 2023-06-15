@@ -13,9 +13,9 @@ router.get ('/productAdd', productosControllers.productAdd)
 router.post ('/productAdd/prodCreate', productosControllers.prodCreate)
 router.get ('/searchResults', productosControllers.searchResults)
 // router.post("/product-edit", productosControllers.editProd)
-router.get("product-edit/:id?", productosControllers.editProd)
+router.get("/product-edit/:id?", productosControllers.editProd)
 router.post("/updateProd/:id", productosControllers.updateProd)
-router.post ('/product/deleteProd', productosControllers.deleteProd)
+router.post ('/deleteProd/:id', productosControllers.deleteProd)
 
 
 module.exports= router;
