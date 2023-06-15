@@ -117,6 +117,9 @@ const controladorProductos = {
         let id = req.params.id
         db.Producto.findByPk(id)
         .then(function(data){
+            db.Comentario.destroy(
+                {where:{productos_id:id}}
+            )
             db.Producto.destroy(
                 {where:{id: id}}
             )
