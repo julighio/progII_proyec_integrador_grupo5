@@ -9,22 +9,21 @@
 	<div class="container products-wrapper">
 		<div class="row">
 			<div class="col-12">
-				<h2 class="products-title">Novedades</h2>
+				<h2 class="products-title">Más comentados</h2>
 			</div>
 			<%for (let i=0; i < product.length; i++){ %>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
 					<a href="/productos/product/<%- product[i].id %>">
-						<div>
+						
 							<figure class="product-box_image">
-								<img src=<%= product[i].img_url %>>
+								<img src=<%=product[i].img_url%> >
 							</figure>
 							<article class="product-box_data">
 								<h2><%= product[i].nombre %></h2>
 								<p><%= product[i].descripcion %></p>
-								<p>Usuario: <%= product[i].usuarios.username %></p>
+								<a href="/users/profile/<%= product[i].usuarios.id  %>"><%= product[i].usuarios.username%> </a>
 							</article>
-						</div>
 					</a>
 				</section>
 			</div>
@@ -39,7 +38,7 @@
 			<%for (let i=0; i < product.length; i++){ %>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="/productos/product">
+					<a href="/productos/product/<%- product[i].id %>">
 						
 							<figure class="product-box_image">
 								<img src=<%=product[i].img_url%> >
@@ -50,7 +49,6 @@
 								<a href="/users/profile/<%= product[i].usuarios.id  %>"><%= product[i].usuarios.username%> </a>
 							</article>
 					</a>
-					
 				</section>
 			</div>
 			<%}%>

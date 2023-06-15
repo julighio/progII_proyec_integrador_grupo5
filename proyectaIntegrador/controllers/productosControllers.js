@@ -113,18 +113,61 @@ const controladorProductos = {
             }
     },
     deleteProd: function(req, res){
+        db.Comentario.destroy(
+            {where:{productos_id:req.body.id}}
+        )
+        db.Producto.destroy(
+            {where:{id:req.body.id}})
+      return res.redirect("/")
 
     },
     editProd: function(req, res){
-        res.render('product-edit', {
-            nombre: req.body.nombre,
-            descripcion: req.body.descripcion,
-            img_url: req.body.image,
-            id: req.body.id
+        let id = req.params.id
+        db.Producto.findByPk(id)
+        .then(function(data){
+            res.render('product-edit', {
+                nombre: data.nombre,
+                descripcion: data.descripcion,
+                img_url: data.image,
+                id: data.id
+            })
+        })
+        .catch(function(err){
+            console.log(err)
         })
     }, 
     updateProd: function(req, res){
-        
+        let id = req.params.id
+        let {nombre, descripcion, img_url} = req.body
+        if (nombre != ""){
+            db.Producto.update({
+                nombre : nombre
+            }, {
+                where: {
+                    id
+                }
+            })
+        }
+        if (descripcion != ""){
+            db.Producto.update({
+                descripcion : descripcion
+            }, {
+                where: {
+                    id 
+                }
+            })
+        }
+        if (img_url != ""){
+            db.Producto.update({
+                img_url : img_url
+            }, {
+                where: {
+                    id
+                }
+            }
+            )
+        }
+        return res.redirect('/')
     }
 }
 

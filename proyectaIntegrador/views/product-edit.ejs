@@ -3,12 +3,12 @@
    
 	<%- include('./partials/header.ejs')%> 	<!-- Header -->
     <h2 class="col-12"> <i>   
-        <form action="/users/" method="POST">  <!-- Aca falta rellenar el header con post y toda la movida! -->
-            <input type= "text" name="nombre" value="<%= //user.username %>">
+        <form action="/productos/updateProd/<%= id%>" method="POST">  <!-- Aca falta rellenar el header con post y toda la movida! -->
+            <input type= "text" name="nombre" value="" placeholder="<%= nombre %>">
 
-            <input type= "text" name="descripcion" value="<%= //user.email%>">
+            <input type= "text" name="descripcion" value="" placeholder="<%= descripcion %>" >
 
-            <input type= "text" name="image" value="<%= //user.fecha_de_nac%>">
+            <input type= "text" name="img_url" value="" placeholder="<%= img_url %>">
 
             <input type="submit" value ="Guardar cambios realizados">
         </form> 

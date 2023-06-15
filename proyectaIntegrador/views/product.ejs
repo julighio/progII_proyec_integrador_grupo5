@@ -6,9 +6,20 @@
 		<div class="d-flex align-items-center">
 			<h2 class="products-title"><%= products.nombre %></h2>
 			<p class="product-detail-description">
-				<a href="/productos/product-edit" >
-					Editar producto 
-				</a>
+
+			<% if (estaLogueado && user.id == products.usuarios.id) {%>
+				<form action="/productos/product-edit/<%= products.id %>" method="GET">
+		
+					<div><input type="submit" value="Editar Producto"></div>
+
+				</form>
+				<form action="/productos/product/deleteProd" method="POST">
+					<input type= "hidden" name="id" value="<%= products.id %>">
+	
+					<div><input type="submit" value="Eliminar Producto"></div>
+
+				</form>
+				<% } %>
 			</p>
 			<p class="product-detail-description">
 				<form action="/">
