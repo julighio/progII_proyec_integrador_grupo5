@@ -57,10 +57,15 @@
 						<%}%> 
 					</section>
 					<section class="comments">
-						<form class="form" action="/productos/product/<%= products.id %>" method="POST">
+						<% if (estaLogueado){%>
+							<form class="form" action="/productos/product/<%= products.id %>" method="POST">
 							<input class="form-input" type="text" name="comentario" placeholder="Agregar comentario">
 							<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
 						</form>
+						<% } else {%>
+								<h3><a href="/users/login">Inicia sesion para comentar</a></h3>
+							<%}%> 
+						
 					</section>
 				</div>
 			</div>
