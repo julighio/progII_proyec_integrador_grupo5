@@ -4,14 +4,14 @@
    
 	<%- include('./partials/header.ejs')%> 	<!-- Header -->
     <h2 class="col-12"> <i>   
-        <form action="/users/profileEdit" method="POST">  <!-- Aca falta rellenar el header con post y toda la movida! -->
+        <form action="/users/update" method="POST">  <!-- Aca falta rellenar el header con post y toda la movida! -->
             <input type= "text" name="username" value="<%= user.username %>">
 
             <input type= "text" name="email" value="<%= user.email%>">
 
-            <input type= "date" name="fecha" value="<%= user.fecha_de_nac%>">
+            <input type= "date" name="fecha_de_nac" value="<%= user.fecha_de_nac%>">
 
-            <input type="number" name="text" value="<%= user.dni%>">
+            <input type="number" name="dni" value="<%= user.dni%>">
 
             <div><input type="submit" value="Guardar Cambios"></div>
 

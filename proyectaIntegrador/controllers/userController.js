@@ -2,6 +2,7 @@ const db = require("../database/models/index")
 const bcrypt =require('bcryptjs')
 const { locals } = require('../app')
 const data = require("../db/data")
+let usuario= db.Usuario
 const usercontroller = {
     profile: function (req,res) {
         console.log('llegamos hasta aca')
@@ -188,27 +189,72 @@ const usercontroller = {
             res.send(err)
         })
     },
-    editprofile:function(req,res) {
-        const user = {
-            username: req.body.username,
-            email: req.body.email,
-            fecha_de_nac: req.body.fecha_de_nac,
-            dni: req.body.dni
+    guardarProfile:function(req,res) {
+        let id= req.session.user.id
+        if(req.body.username !=""){
+            usuario.update({
+                username:req.body.username
+            },
+            {where:{id:id}}
+            )
         }
-        db.Usuario.update(user,{
-            where:{
-                id:req.session.id
-            }
+        if(req.body.fecha_de_nac !=""){
+            usuario.update({
+                fecha_de_nac:req.body.fecha_de_nac
+            },
+            {where:{id:id}}
+            )
+        }
+        if(req.body.dni !=""){
+            usuario.update({
+                dni:req.body.dni
+            },
+            {where:{id:id}}
+            )
+        }
+        if(req.body.email !=""){
+            usuario.update({
+                email:req.body.email
+            },
+            {where:{id:id}}
+            )
+        }
+        req.session.destroy()
+        return res.redirect("/")
+        
+        
+        
+        // const user = {
+        //     username: req.body.username,
+        //     email: req.body.email,
+        //     fecha_de_nac: req.body.fecha_de_nac,
+        //     dni: req.body.dni
+        // }
+        // db.Usuario.update(user,{
+        //     where:{
+        //         id:req.session.id
+        //     }
+        // })
+        // .then(function(user){
+        //     user.id=req.session.user.id
+        //     req.session.user=user
+        //     return res.redirect(`/users/profile/${user.id}`)
+        // })
+        // .catch(function(error){
+        //     console.log(error)
+        // })
+    },
+    editProfile:function(req,res){
+        let id= req.session.user.id
+        usuario.findOne({
+            where:[{id:id}]
         })
-        .then(function(user){
-            user.id=req.session.user.id
-            req.session.user=user
-            return res.redirect(`/users/profile/${user.id}`)
+        .then((resultado)=>{
+            return res.render("profile-edit",{user:resultado.dataValues})
         })
-        .catch(function(error){
-            console.log(error)
-        })
+
     }
+
 
     
 }
